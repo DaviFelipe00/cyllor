@@ -1,0 +1,100 @@
+---
+const cases = [
+  {
+    client: 'Grupo Financeiro Nacional',
+    category: 'Cloud Migration',
+    result: 'Redução de 68% no custo de infraestrutura após migração para AWS com Kubernetes e auto-scaling.',
+    metrics: [
+      { value: '68', suffix: '%', label: 'Custo' },
+      { value: '99.97', suffix: '%', label: 'Uptime' },
+      { value: '3', suffix: 'x', label: 'Deploy' },
+    ],
+    gradient: 'from-blue-900/20 to-transparent',
+  },
+  {
+    client: 'Retailer E-commerce',
+    category: 'Performance Engineering',
+    result: 'Plataforma reengenheirada suportou 40x mais pico de tráfego na Black Friday sem incidentes.',
+    metrics: [
+      { value: '40', suffix: 'x', label: 'Capacidade' },
+      { value: '0', suffix: '', label: 'Incidentes' },
+      { value: '220', suffix: 'ms', label: 'P99' },
+    ],
+    gradient: 'from-emerald-900/20 to-transparent',
+  },
+  {
+    client: 'HealthTech Startup',
+    category: 'Data Platform',
+    result: 'Data Lakehouse processando 2TB/dia em tempo real com dashboards para 500+ analistas simultâneos.',
+    metrics: [
+      { value: '2', suffix: 'TB', label: 'Dados/dia' },
+      { value: '500', suffix: '+', label: 'Usuários' },
+      { value: '4', suffix: 's', label: 'Query P95' },
+    ],
+    gradient: 'from-purple-900/20 to-transparent',
+  },
+];
+---
+<section id="cases" class="relative py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-16 overflow-hidden">
+
+  <!-- Top divider -->
+  <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-cyllor-border to-transparent" />
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-12 sm:mb-16 lg:mb-20 case-card">
+      <p class="section-label mb-4 sm:mb-5">03 / Cases de Performance</p>
+      <h2 class="font-display font-bold text-section text-white leading-tight max-w-2xl">
+        Resultados que falam
+        <span class="text-gradient"> por si mesmos.</span>
+      </h2>
+    </div>
+
+    <!-- Cases -->
+    <div class="space-y-5 sm:space-y-8">
+      {cases.map((c, i) => (
+        <article
+          class="case-card group relative border border-cyllor-border hover:border-cyllor-cyan transition-all duration-500 overflow-hidden"
+          data-cursor-hover
+        >
+          <div class={`absolute inset-0 bg-gradient-to-r ${c.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+          <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+
+            <!-- Category + index row -->
+            <div class="flex items-center gap-4 mb-4">
+              <span class="font-mono text-xs text-cyllor-cyan-dim tracking-widest uppercase">{c.category}</span>
+              <span class="w-px h-4 bg-cyllor-border" />
+              <span class="font-mono text-xs text-cyllor-muted">{String(i+1).padStart(2,'0')}</span>
+            </div>
+
+            <!-- Client name -->
+            <h3 class="font-display font-bold text-white text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4 group-hover:text-cyllor-cyan transition-colors duration-300">
+              {c.client}
+            </h3>
+
+            <!-- Result text -->
+            <p class="font-body text-sm text-cyllor-silver-dim leading-relaxed mb-6 sm:mb-8 max-w-lg">
+              {c.result}
+            </p>
+
+            <!-- Metrics — responsive grid -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 border-t border-cyllor-border pt-6 sm:pt-8 mt-4">
+              {c.metrics.map((m) => (
+                <div class="text-center sm:text-left flex flex-col justify-end">
+                  <div class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white glow-cyan mb-1 leading-none">
+                    <span data-count={m.value} data-suffix={m.suffix}>0{m.suffix}</span>
+                  </div>
+                  <p class="font-mono text-[10px] sm:text-xs text-cyllor-silver uppercase tracking-wider sm:tracking-widest leading-tight opacity-90">
+                    {m.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

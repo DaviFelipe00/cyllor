@@ -1,0 +1,101 @@
+---
+const skills = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="16" y="2" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="2" y="16" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="16" y="16" width="10" height="10" rx="2" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
+    title: 'Cloud Architecture',
+    desc: 'Infraestrutura escalável em AWS, GCP e Azure. IaC com Terraform e Pulumi para ambientes zero-downtime.',
+    tags: ['AWS', 'Terraform', 'K8s'],
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#00f0ff" stroke-width="1.5"/><path d="M9 14l3 3 7-7" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'DevSecOps',
+    desc: 'Pipelines CI/CD com segurança integrada. Compliance automático, SAST, DAST e shift-left security.',
+    tags: ['GitHub Actions', 'SonarQube', 'Vault'],
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l8-14 8 14" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="4" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
+    title: 'Data & Analytics',
+    desc: 'Plataformas de dados em tempo real. Data Lakehouse, streaming com Kafka e dashboards executivos.',
+    tags: ['Spark', 'Kafka', 'dbt'],
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="8" width="22" height="14" rx="2" stroke="#00f0ff" stroke-width="1.5"/><path d="M9 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
+    title: 'Modernização de Sistemas',
+    desc: 'Migração de legados para microserviços. Estratégia strangler fig, refatoração e domain-driven design.',
+    tags: ['Microservices', 'DDD', 'Event Sourcing'],
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M4 14h20" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="14" r="6" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
+    title: 'AI & Machine Learning',
+    desc: 'MLOps, modelos LLM customizados e automação inteligente integrada ao seu core business.',
+    tags: ['LangChain', 'MLflow', 'PyTorch'],
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 14C4 8.477 8.477 4 14 4s10 4.477 10 10-4.477 10-10 10S4 19.523 4 14z" stroke="#00f0ff" stroke-width="1.5"/><path d="M10 14l2 2 6-6" stroke="#c0c8d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Observabilidade',
+    desc: 'Stack completa de monitoramento. SLOs, alertas inteligentes, rastreamento distribuído e custo cloud.',
+    tags: ['Grafana', 'Prometheus', 'OpenTelemetry'],
+  },
+];
+---
+<section id="expertise" class="relative py-32 px-6 lg:px-16 overflow-hidden">
+
+  <!-- Faint divider line -->
+  <div class="absolute top-0 left-16 right-16 h-px bg-gradient-to-r from-transparent via-cyllor-border to-transparent" />
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div id="expertise-heading" class="mb-20">
+      <p class="section-label mb-5">01 / Expertise Interativa</p>
+      <h2 class="font-display font-bold text-section text-white leading-tight max-w-xl">
+        O que nos torna
+        <span class="text-gradient"> indispensáveis.</span>
+      </h2>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {skills.map((skill) => (
+        <article
+          class="expertise-card group relative p-8 sm:p-10 bg-cyllor-surface border border-cyllor-border hover:border-cyllor-cyan transition-all duration-500 cursor-pointer"
+          data-cursor-hover
+        >
+          <!-- Hover glow bg -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            style="background: radial-gradient(circle at 50% 0%, rgba(0,240,255,0.06) 0%, transparent 70%)"
+          />
+
+          <!-- Icon -->
+          <div class="mb-6 w-14 h-14 flex items-center justify-center border border-cyllor-border group-hover:border-cyllor-cyan transition-colors duration-300"
+            set:html={skill.icon}
+          />
+
+          <!-- Content -->
+          <h3 class="font-display font-semibold text-white text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-cyllor-cyan transition-colors duration-300">
+            {skill.title}
+          </h3>
+          <p class="font-body text-sm sm:text-base text-cyllor-silver leading-relaxed mb-6 sm:mb-8 opacity-90">
+            {skill.desc}
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {skill.tags.map((tag) => (
+              <span class="font-mono text-xs px-2.5 py-1 bg-cyllor-border text-cyllor-silver group-hover:bg-cyllor-cyan-glow transition-colors duration-300">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Arrow indicator -->
+          <div class="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8h12M10 4l4 4-4 4" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

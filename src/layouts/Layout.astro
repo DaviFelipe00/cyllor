@@ -1,0 +1,202 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Cyllor — Elite IT Consulting',
+  description = 'Arquitetura de soluções, performance e inovação. Consultoria de TI de alto nível.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pt-BR" class="bg-cyllor-dark overflow-x-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style is:global>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: auto; } /* Lenis handles smooth scroll */
+
+    body {
+      background-color: #050505;
+      color: #c0c8d8;
+      font-family: 'Inter', sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    /* ── Custom Cursor ─────────────────────── */
+    #cursor-dot {
+      position: fixed;
+      top: -4px; left: -4px;
+      width: 8px; height: 8px;
+      background: #00f0ff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform;
+    }
+    #cursor-ring {
+      position: fixed;
+      top: -18px; left: -18px;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(192,200,216,0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      will-change: transform;
+      transition: border-color 0.25s ease;
+    }
+
+    /* ── Selection ─────────────────────────── */
+    ::selection {
+      background: rgba(0,240,255,0.25);
+      color: #ffffff;
+    }
+
+    /* ── Scrollbar ─────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #080808; }
+    ::-webkit-scrollbar-thumb { background: #00f0ff44; border-radius: 2px; }
+
+    /* ── Utility ───────────────────────────── */
+    .text-gradient {
+      background: linear-gradient(135deg, #00f0ff 0%, #c0c8d8 60%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glow-cyan {
+      text-shadow: 0 0 30px rgba(0,240,255,0.4), 0 0 80px rgba(0,240,255,0.15);
+    }
+
+    .border-glow {
+      border: 1px solid rgba(0,240,255,0.2);
+      box-shadow: 0 0 20px rgba(0,240,255,0.05), inset 0 0 20px rgba(0,240,255,0.03);
+    }
+
+    /* ── Glitch Effect ─────────────────────── */
+    .glitch-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .glitch-wrapper::before,
+    .glitch-wrapper::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+    }
+    .glitch-wrapper::before {
+      color: #00f0ff;
+      animation: glitch1 5s infinite linear;
+      text-shadow: -2px 0 #ff003c;
+    }
+    .glitch-wrapper::after {
+      color: #ff003c;
+      animation: glitch2 5s infinite linear;
+      text-shadow: 2px 0 #00f0ff;
+    }
+
+    @keyframes glitch1 {
+      0%,100% { clip-path: inset(0 0 100% 0); transform: translate(-2px, 0) skewX(0deg); }
+      5%       { clip-path: inset(8% 0 78% 0); transform: translate(-3px,1px) skewX(-2deg); }
+      10%      { clip-path: inset(55% 0 25% 0); transform: translate(2px,-1px) skewX(2deg); }
+      15%      { clip-path: inset(35% 0 50% 0); transform: translate(-2px,0) skewX(-1deg); }
+      20%      { clip-path: inset(0 0 100% 0); transform: translate(0,0) skewX(0deg); }
+    }
+    @keyframes glitch2 {
+      0%,100% { clip-path: inset(100% 0 0 0); transform: translate(2px,0) skewX(0deg); }
+      7%       { clip-path: inset(65% 0 15% 0); transform: translate(3px,-1px) skewX(1deg); }
+      12%      { clip-path: inset(28% 0 58% 0); transform: translate(-2px,1px) skewX(-2deg); }
+      17%      { clip-path: inset(45% 0 35% 0); transform: translate(2px,0) skewX(1.5deg); }
+      22%      { clip-path: inset(100% 0 0 0); transform: translate(0,0) skewX(0deg); }
+    }
+
+    /* ── 3D Text Effect ────────────────────── */
+    .text-3d {
+      text-shadow: 
+        1px 1px 0px #1a1a24,
+        2px 2px 0px #1a1a24,
+        3px 3px 0px #1a1a24,
+        4px 4px 0px #1a1a24,
+        5px 5px 0px #1a1a24,
+        6px 6px 0px #1a1a24,
+        7px 7px 0px #00f0ff,
+        15px 15px 35px rgba(0, 240, 255, 0.5);
+      transform-style: preserve-3d;
+      transition: text-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .text-3d:hover {
+      text-shadow: 
+        0 10px 25px rgba(0, 240, 255, 0.6),
+        0 20px 45px rgba(0, 240, 255, 0.2);
+    }
+
+    /* ── Scanline overlay ─────────────────── */
+    .scanline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Section title line ───────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #00f0ff;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: #00f0ff;
+    }
+  </style>
+</head>
+<body class="bg-[#050505]">
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <slot />
+
+  <script>
+    import { initAll } from '../scripts/animations.js';
+    initAll();
+  </script>
+</body>
+</html>

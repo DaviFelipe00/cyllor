@@ -1,0 +1,96 @@
+---
+---
+<section
+  id="hero"
+  class="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden scanline px-5"
+>
+  <!-- Background grid -->
+  <div
+    class="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none"
+    style="mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)"
+  />
+
+  <!-- Ambient glow orbs -->
+  <div class="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%); filter: blur(40px);"
+  />
+  <div class="absolute bottom-1/4 right-1/4 w-40 sm:w-80 h-40 sm:h-80 rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(192,200,216,0.06) 0%, transparent 70%); filter: blur(60px);"
+  />
+
+  <!-- Content -->
+  <div class="relative z-10 text-center w-full max-w-5xl mx-auto pt-24 pb-16">
+
+
+
+    <!-- CYLLOR Title with Glitch -->
+    <h1
+      id="hero-title"
+      class="glitch-wrapper text-3d font-display font-bold text-white tracking-tighter leading-none mb-6 sm:mb-8"
+      data-text="CYLLOR"
+      style="font-size: clamp(3.5rem, 18vw, 14rem);"
+    >
+      CYLLOR
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      id="hero-subtitle"
+      class="font-body text-base sm:text-lg md:text-xl text-cyllor-silver-dim max-w-xl mx-auto leading-relaxed mb-10 sm:mb-12 px-2"
+    >
+      Aceleramos líderes de mercado através de infraestrutura cloud resiliente, engenharia de dados e arquitetura de software de precisão.
+      <span class="text-white"> Resultados tangíveis. Sem espaço para mediocridade.</span>
+    </p>
+
+    <!-- CTAs -->
+    <div id="hero-cta" class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+      <a
+        href="#expertise"
+        data-cursor-hover
+        class="w-full sm:w-auto group inline-flex items-center justify-center gap-3 px-7 py-4 bg-cyllor-cyan text-cyllor-dark font-display font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-white active:scale-95"
+      >
+        Ver Expertise
+        <svg class="transition-transform duration-300 group-hover:translate-x-1" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a
+        href="#cases"
+        data-cursor-hover
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 border border-cyllor-border text-cyllor-silver font-display font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:border-cyllor-cyan hover:text-white active:scale-95"
+      >
+        Cases de Sucesso
+      </a>
+    </div>
+
+    <!-- Social Proof Banner -->
+    <div id="hero-social-proof" class="mt-16 sm:mt-24 pt-8 border-t border-cyllor-border/40 max-w-4xl mx-auto flex flex-col items-center">
+      <p class="font-mono text-[0.65rem] sm:text-xs text-cyllor-muted tracking-widest uppercase mb-6 sm:mb-8">Plataformas em escala global construídas com a nossa expertise</p>
+      <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 opacity-60">
+        <!-- Logos placeholders visually represented as text/shapes for aesthetic cohesion -->
+        <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-widest opacity-80 hover:opacity-100 transition-opacity flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 22h20L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          ACME<span class="text-cyllor-cyan">_</span>CORP
+        </div>
+        <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-tighter opacity-80 hover:opacity-100 transition-opacity flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/></svg>
+          NEXUS
+        </div>
+        <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-wide opacity-80 hover:opacity-100 transition-opacity flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/></svg>
+          FIN<span class="text-cyllor-muted text-sm">TECH</span>
+        </div>
+        <div class="font-display font-bold text-lg sm:text-2xl text-white tracking-widest opacity-80 hover:opacity-100 transition-opacity flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12A10 10 0 1112 2v10h10z" fill="currentColor"/></svg>
+          DATAKORE
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div id="hero-scroll-hint" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <span class="font-mono text-[0.6rem] text-cyllor-muted tracking-widest">SCROLL</span>
+    <div class="w-px h-10 bg-gradient-to-b from-cyllor-cyan to-transparent animate-float" />
+  </div>
+</section>
