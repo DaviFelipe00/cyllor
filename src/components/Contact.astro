@@ -55,7 +55,7 @@ const contactState = Astro.url.searchParams.get('contact');
 
         <div class="flex flex-col gap-1.5">
           <label class="elyse-label" for="c-name">Nome</label>
-          <input id="c-name" name="name" required minlength="2" class="elyse-input" placeholder="Seu nome completo" />
+          <input id="c-name" name="name" required class="elyse-input" placeholder="Seu nome completo" />
         </div>
 
         <div class="flex flex-col gap-1.5">
@@ -65,7 +65,7 @@ const contactState = Astro.url.searchParams.get('contact');
 
         <div class="flex flex-col gap-1.5">
           <label class="elyse-label" for="c-company">Condomínio ou empresa</label>
-          <input id="c-company" name="company" required minlength="2" class="elyse-input" placeholder="Nome do condomínio ou administradora" />
+          <input id="c-company" name="company" required class="elyse-input" placeholder="Nome do condomínio ou administradora" />
           <input type="hidden" name="interest" value="Solicitação de demonstração" />
         </div>
 
@@ -75,7 +75,6 @@ const contactState = Astro.url.searchParams.get('contact');
             id="c-challenge"
             name="challenge"
             required
-            minlength="10"
             rows="3"
             class="elyse-input resize-none"
             placeholder="Descreva o principal gargalo da operação atual"
@@ -103,3 +102,42 @@ const contactState = Astro.url.searchParams.get('contact');
     </div>
   </div>
 </section>
+
+<script>
+  const contactForm = document.querySelector('#contact form');
+
+  if (contactForm) {
+    const validationMessages = {
+      name: 'Informe seu nome.',
+      emailRequired: 'Informe seu e-mail.',
+      emailInvalid: 'Informe um e-mail valido.',
+      company: 'Informe o nome do condominio ou da empresa.',
+      challenge: 'Escreva sua mensagem.',
+    };
+
+    const getMessage = (field) => {
+      if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return '';
+
+      if (field.name === 'email') {
+        if (field.validity.valueMissing) return validationMessages.emailRequired;
+        if (field.validity.typeMismatch) return validationMessages.emailInvalid;
+      }
+
+      if (field.name === 'name' && field.validity.valueMissing) return validationMessages.name;
+      if (field.name === 'company' && field.validity.valueMissing) return validationMessages.company;
+      if (field.name === 'challenge' && field.validity.valueMissing) return validationMessages.challenge;
+
+      return '';
+    };
+
+    contactForm.querySelectorAll('input, textarea').forEach((field) => {
+      field.addEventListener('invalid', () => {
+        field.setCustomValidity(getMessage(field));
+      });
+
+      field.addEventListener('input', () => {
+        field.setCustomValidity('');
+      });
+    });
+  }
+</script>

@@ -1,6 +1,10 @@
 import type { APIRoute } from 'astro';
 import { createLead } from '../../lib/db';
 
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 function redirectTo(request: Request, status: 'success' | 'error') {
   const url = new URL(request.url);
   url.pathname = '/contato';
@@ -31,12 +35,12 @@ export const POST: APIRoute = async ({ request }) => {
   };
 
   const isValid =
-    payload.name.length >= 2 &&
-    payload.email.length >= 5 &&
-    payload.email.includes('@') &&
-    payload.company.length >= 2 &&
-    payload.interest.length >= 3 &&
-    payload.challenge.length >= 10;
+    payload.name.length > 0 &&
+    payload.email.length > 0 &&
+    isValidEmail(payload.email) &&
+    payload.company.length > 0 &&
+    payload.interest.length > 0 &&
+    payload.challenge.length > 0;
 
   if (!isValid) {
     return redirectTo(request, 'error');
