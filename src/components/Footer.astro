@@ -1,20 +1,20 @@
 ---
 ---
-<footer id="footer" class="relative pt-16 sm:pt-20 pb-10 px-6 sm:px-10 lg:px-14 overflow-hidden" style="background: var(--black);">
+<footer id="footer" class="relative pt-16 sm:pt-20 pb-10 px-6 sm:px-10 lg:px-14 overflow-hidden" style="background: #0f172a;">
 
   <!-- Top divider -->
-  <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(201,169,110,0.2), transparent);"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);"></div>
 
   <div class="max-w-7xl mx-auto">
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 pb-10 mb-10 border-b" style="border-color: rgba(201,169,110,0.1);">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 pb-10 mb-10 border-b" style="border-color: rgba(255,255,255,0.1);">
 
       <!-- Brand -->
       <div class="sm:col-span-2 lg:col-span-1">
-        <span class="font-display font-light text-2xl tracking-[0.2em] mb-5 block" style="color: var(--cream);">
+        <span class="font-display font-semibold text-2xl tracking-[0.2em] mb-5 block" style="color: #ffffff;">
           CYLLOR
         </span>
-        <p class="font-mono text-[0.58rem] tracking-[0.15em] leading-relaxed uppercase" style="color: var(--muted);">
+        <p class="font-mono text-[0.58rem] tracking-[0.15em] leading-relaxed uppercase" style="color: rgba(255,255,255,0.5);">
           Software para condomínios<br/>
           com foco em rotina e facilidade.<br/>
           Atendimento para síndicos,<br/>
@@ -24,7 +24,7 @@
 
       <!-- Produto -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Produto</p>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Produto</p>
         <nav class="flex flex-col gap-3">
           {[
             { label: 'Como funciona', href: '#lifestyle' },
@@ -32,7 +32,7 @@
             { label: 'Resultados',    href: '#cases' },
             { label: 'Agendar demo',  href: '#contact' },
           ].map(link => (
-            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-blue-400" style="color: rgba(255,255,255,0.7);">
               {link.label}
             </a>
           ))}
@@ -41,14 +41,14 @@
 
       <!-- Legal -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Legal</p>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Legal</p>
         <nav class="flex flex-col gap-3">
           {[
             { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
             { label: 'Termos de Uso',           href: '/termos-de-uso' },
             { label: 'Compliance',              href: '/compliance' },
           ].map(link => (
-            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-blue-400" style="color: rgba(255,255,255,0.7);">
               {link.label}
             </a>
           ))}
@@ -57,12 +57,12 @@
 
       <!-- Contact -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Contato</p>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Contato</p>
         <div class="flex flex-col gap-3">
-          <a href="mailto:contato@cyllor.com" class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+          <a href="mailto:contato@cyllor.com" class="font-body text-sm transition-colors duration-300 hover:text-blue-400" style="color: rgba(255,255,255,0.7);">
             contato@cyllor.com
           </a>
-          <a href="#contact" class="btn-gold text-center mt-2">
+          <a href="#contact" class="btn-gold text-center mt-2" style="color: #ffffff; border-color: rgba(255,255,255,0.5);">
             Agendar demo
           </a>
         </div>
@@ -71,11 +71,11 @@
 
     <!-- Bottom bar -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <p class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: rgba(240,235,225,0.2);">
+      <p class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">
         © {new Date().getFullYear()} Cyllor. Software para condomínios.
       </p>
-      <!-- Gold line -->
-      <div class="h-px w-16 sm:w-24" style="background: rgba(201,169,110,0.3);"></div>
+      <!-- Blue line -->
+      <div class="h-px w-16 sm:w-24" style="background: rgba(96,165,250,0.3);"></div>
     </div>
   </div>
 </footer>

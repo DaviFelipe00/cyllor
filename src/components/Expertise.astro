@@ -1,5 +1,5 @@
 ---
-// Expertise: "Facilidades" — dark cards with gold accents, Elyse mission/values style
+// Expertise: "Facilidades" — light cards with blue accents
 const skills = [
   {
     num: '01',
@@ -39,7 +39,7 @@ const skills = [
   },
 ];
 ---
-<section id="expertise" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--dark);">
+<section id="expertise" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--bg);">
 
   <div class="section-divider"></div>
 
@@ -49,16 +49,16 @@ const skills = [
     <div class="mb-16 sm:mb-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
       <div data-reveal>
         <span class="section-label mb-5 block">(Facilidades)</span>
-        <h2 class="font-display font-light leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--cream);">
+        <h2 class="font-display font-semibold leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--text);">
           Uma visão de operação<br/>
-          <span class="italic" style="color: var(--gold);">inteligente</span>
+          <span class="font-normal" style="color: var(--blue);">inteligente</span>
         </h2>
       </div>
       <div data-reveal="right" data-delay="100">
-        <p class="font-body text-sm sm:text-base leading-relaxed mb-5" style="color: rgba(240,235,225,0.55); line-height: 1.9;">
+        <p class="font-body text-sm sm:text-base leading-relaxed mb-5" style="color: var(--text-dim); line-height: 1.9;">
           Inspirar e sustentar um condomínio mais organizado, em que a gestão, a portaria e os moradores operam com menos atrito e mais clareza.
         </p>
-        <div class="h-px" style="background: rgba(201,169,110,0.2);"></div>
+        <div class="h-px" style="background: rgba(37,99,235,0.15);"></div>
       </div>
     </div>
 
@@ -66,33 +66,32 @@ const skills = [
     <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
       {skills.map((skill, i) => (
         <article
-          class="group relative p-7 sm:p-9 gold-border rounded-sm flex flex-col gap-5 transition-all duration-500 hover:border-cyllor-gold"
-          style="background: var(--surface);"
+          class="group relative p-7 sm:p-9 gold-border rounded-lg flex flex-col gap-5 transition-all duration-500 hover:border-blue-500 shadow-sm hover:shadow-md bg-white"
           data-reveal
           data-delay={i * 80}
           data-cursor-hover
         >
           <!-- Hover glow -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-sm"
-            style="background: radial-gradient(circle at 50% 0%, rgba(201,169,110,0.06) 0%, transparent 65%)"></div>
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-lg"
+            style="background: radial-gradient(circle at 50% 0%, rgba(37,99,235,0.03) 0%, transparent 65%)"></div>
 
           <!-- Number -->
-          <span class="font-mono text-[0.58rem] tracking-[0.28em] uppercase" style="color: rgba(201,169,110,0.45);">{skill.num}</span>
+          <span class="font-mono text-[0.58rem] tracking-[0.28em] uppercase" style="color: rgba(37,99,235,0.5);">{skill.num}</span>
 
           <!-- Title -->
-          <h3 class="font-display font-light text-2xl sm:text-[1.7rem] leading-tight transition-colors duration-300 group-hover:text-cyllor-gold" style="color: var(--cream);">
+          <h3 class="font-display font-semibold text-2xl sm:text-[1.7rem] leading-tight transition-colors duration-300 group-hover:text-blue-600" style="color: var(--text);">
             {skill.title}
           </h3>
 
           <!-- Description -->
-          <p class="font-body text-sm leading-relaxed flex-1" style="color: rgba(240,235,225,0.5); line-height: 1.8;">
+          <p class="font-body text-sm leading-relaxed flex-1" style="color: var(--text-dim); line-height: 1.8;">
             {skill.desc}
           </p>
 
           <!-- Tags -->
-          <div class="flex flex-wrap gap-2 pt-4 border-t" style="border-color: rgba(201,169,110,0.1);">
+          <div class="flex flex-wrap gap-2 pt-4 border-t" style="border-color: rgba(15,23,42,0.06);">
             {skill.tags.map((tag) => (
-              <span class="font-mono text-[0.55rem] px-2.5 py-1 tracking-widest uppercase rounded-full" style="background: rgba(201,169,110,0.07); color: rgba(201,169,110,0.55); border: 1px solid rgba(201,169,110,0.12);">
+              <span class="font-mono text-[0.55rem] px-2.5 py-1 tracking-widest uppercase rounded-full" style="background: rgba(37,99,235,0.05); color: var(--blue); border: 1px solid rgba(37,99,235,0.1);">
                 {tag}
               </span>
             ))}

@@ -20,7 +20,7 @@ const {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
 
@@ -28,25 +28,25 @@ const {
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:      #0b0c0b;
-      --dark:       #111312;
-      --surface:    #181a18;
-      --gold:       #c9a96e;
-      --gold-dim:   rgba(201,169,110,0.5);
-      --gold-glow:  rgba(201,169,110,0.12);
-      --cream:      #f0ebe1;
-      --cream-dim:  rgba(240,235,225,0.55);
-      --muted:      rgba(240,235,225,0.35);
-      --border:     rgba(201,169,110,0.18);
-      --green-dark: #1a2e26;
+      --bg:         #ffffff;
+      --bg-alt:     #f8fafc;
+      --surface:    #ffffff;
+      --blue:       #2563eb;
+      --blue-light: #3b82f6;
+      --blue-dark:  #1d4ed8;
+      --text:       #0f172a;
+      --text-dim:   rgba(15,23,42,0.6);
+      --text-muted: rgba(15,23,42,0.4);
+      --border:     rgba(15,23,42,0.08);
+      --accent:     #2563eb;
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
-      background: var(--dark);
-      color: var(--cream);
-      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Open Sans', sans-serif;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -57,7 +57,7 @@ const {
 
     a:focus-visible,
     button:focus-visible {
-      outline: 2px solid var(--gold);
+      outline: 2px solid var(--blue);
       outline-offset: 4px;
     }
 
@@ -66,7 +66,7 @@ const {
       position: fixed;
       top: -4px; left: -4px;
       width: 7px; height: 7px;
-      background: var(--gold);
+      background: var(--blue);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
@@ -76,7 +76,7 @@ const {
       position: fixed;
       top: -20px; left: -20px;
       width: 40px; height: 40px;
-      border: 1px solid rgba(201,169,110,0.4);
+      border: 1px solid rgba(37,99,235,0.3);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9998;
@@ -90,28 +90,23 @@ const {
 
     /* ── Selection ─────────────────────────── */
     ::selection {
-      background: rgba(201,169,110,0.2);
-      color: var(--cream);
+      background: rgba(37,99,235,0.15);
+      color: var(--text);
     }
 
     /* ── Scrollbar ─────────────────────────── */
     ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.3); border-radius: 2px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: rgba(37,99,235,0.3); border-radius: 2px; }
 
     /* ── Typography Utilities ───────────────── */
-    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-display { font-family: 'Open Sans', sans-serif; }
 
-    .text-gold-gradient {
-      background: linear-gradient(135deg, #c9a96e 0%, #e8d5a8 40%, #c9a96e 100%);
+    .text-blue-gradient {
+      background: linear-gradient(135deg, #2563eb 0%, #60a5fa 40%, #2563eb 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-    }
-
-    .text-italic-gold {
-      font-style: italic;
-      color: var(--gold);
     }
 
     /* ── Section Label ─────────────────────── */
@@ -123,14 +118,14 @@ const {
       font-size: 0.65rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--blue);
     }
     .section-label::before {
       content: '';
       display: block;
       width: 28px; height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
+      background: var(--blue);
+      opacity: 0.5;
     }
 
     /* ── Divider Line ──────────────────────── */
@@ -138,10 +133,10 @@ const {
       position: absolute;
       top: 0; left: 5%; right: 5%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      background: linear-gradient(90deg, transparent, rgba(15,23,42,0.06), transparent);
     }
 
-    /* ── Gold Border ───────────────────────── */
+    /* ── Border ────────────────────────────── */
     .gold-border {
       border: 1px solid var(--border);
     }
@@ -187,11 +182,21 @@ const {
       transform: scale(1.04);
     }
 
-    /* ── Nav Scroll Effect ─────────────────── */
+    /* ── Nav ───────────────────────────────── */
+    #site-nav .nav-logo { color: #ffffff; }
+    #site-nav .nav-link { color: rgba(255,255,255,0.7); }
+    #site-nav .nav-link:hover { color: #ffffff; }
+    #site-nav .nav-hamburger { color: #ffffff; }
+
     #site-nav.scrolled {
-      background: rgba(11,12,11,0.92) !important;
+      background: rgba(255,255,255,0.95) !important;
       backdrop-filter: blur(20px);
+      box-shadow: 0 1px 12px rgba(15,23,42,0.06);
     }
+    #site-nav.scrolled .nav-logo { color: var(--text); }
+    #site-nav.scrolled .nav-link { color: var(--text-dim); }
+    #site-nav.scrolled .nav-link:hover { color: var(--text); }
+    #site-nav.scrolled .nav-hamburger { color: var(--text); }
 
     /* ── Button styles ─────────────────────── */
     .btn-gold {
@@ -200,8 +205,8 @@ const {
       justify-content: center;
       gap: 0.75rem;
       padding: 0.875rem 2.25rem;
-      border: 1px solid var(--gold);
-      color: var(--gold);
+      border: 1px solid var(--blue);
+      color: var(--blue);
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.22em;
@@ -211,8 +216,8 @@ const {
       text-decoration: none;
     }
     .btn-gold:hover {
-      background: var(--gold);
-      color: var(--black);
+      background: var(--blue);
+      color: #ffffff;
     }
 
     .btn-gold-fill {
@@ -221,19 +226,19 @@ const {
       justify-content: center;
       gap: 0.75rem;
       padding: 1rem 2.5rem;
-      background: var(--gold);
-      color: var(--black);
+      background: var(--blue);
+      color: #ffffff;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       border-radius: 100px;
-      border: 1px solid var(--gold);
+      border: 1px solid var(--blue);
       transition: opacity 0.3s ease, transform 0.2s ease;
       text-decoration: none;
     }
     .btn-gold-fill:hover {
-      opacity: 0.88;
+      background: var(--blue-dark);
     }
 
     /* ── Form inputs ───────────────────────── */
@@ -241,19 +246,19 @@ const {
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(240,235,225,0.25);
+      border-bottom: 1px solid rgba(15,23,42,0.15);
       padding: 0.75rem 0;
-      color: var(--cream);
-      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      font-family: 'Open Sans', sans-serif;
       font-size: 0.875rem;
       outline: none;
       transition: border-color 0.3s ease;
     }
     .elyse-input::placeholder {
-      color: var(--muted);
+      color: var(--text-muted);
     }
     .elyse-input:focus {
-      border-bottom-color: var(--gold);
+      border-bottom-color: var(--blue);
     }
 
     .elyse-label {
@@ -262,7 +267,7 @@ const {
       font-size: 0.6rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text-muted);
       margin-bottom: 0.25rem;
     }
 
@@ -299,10 +304,10 @@ const {
       document.querySelectorAll('a, button, [data-cursor-hover]').forEach(el => {
         el.addEventListener('mouseenter', () => {
           ring.style.transform += ' scale(1.5)';
-          ring.style.borderColor = 'rgba(201,169,110,0.7)';
+          ring.style.borderColor = 'rgba(37,99,235,0.6)';
         });
         el.addEventListener('mouseleave', () => {
-          ring.style.borderColor = 'rgba(201,169,110,0.4)';
+          ring.style.borderColor = 'rgba(37,99,235,0.3)';
         });
       });
     }

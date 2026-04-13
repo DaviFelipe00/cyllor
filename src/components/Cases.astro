@@ -1,5 +1,5 @@
 ---
-// Cases: "Resultados" — Elyse "Our Livings" horizontal slider style
+// Cases: "Resultados" — Elyse-style horizontal slider, updated to light theme
 const cases = [
   {
     num: '01',
@@ -39,7 +39,7 @@ const cases = [
   },
 ];
 ---
-<section id="cases" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--darker);">
+<section id="cases" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--bg-alt);">
 
   <div class="section-divider"></div>
 
@@ -47,9 +47,9 @@ const cases = [
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
       <div data-reveal>
         <span class="section-label mb-5 block">(Resultados)</span>
-        <h2 class="font-display font-light leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--cream);">
+        <h2 class="font-display font-semibold leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--text);">
           Cenários reais,<br/>
-          <span class="italic" style="color: var(--gold);">ganhos concretos</span>
+          <span class="font-normal" style="color: var(--blue);">ganhos concretos</span>
         </h2>
       </div>
       <!-- Navigation dots -->
@@ -57,7 +57,7 @@ const cases = [
         {cases.map((_, i) => (
           <button
             class="cases-dot w-8 h-px transition-all duration-300"
-            style={`background: ${i === 0 ? 'var(--gold)' : 'rgba(201,169,110,0.25)'};`}
+            style={`background: ${i === 0 ? 'var(--blue)' : 'rgba(37,99,235,0.25)'};`}
             data-index={i}
             aria-label={`Ir para caso ${i+1}`}
           ></button>
@@ -75,8 +75,8 @@ const cases = [
     >
       {cases.map((c, i) => (
         <article
-          class="flex-none w-[calc(100vw-3rem)] sm:w-[calc(100vw-5rem)] lg:w-[calc(50vw-4rem)] xl:w-[calc(40vw-3rem)] max-w-2xl gold-border rounded-sm overflow-hidden group"
-          style="background: var(--surface); scroll-snap-align: start;"
+          class="flex-none w-[calc(100vw-3rem)] sm:w-[calc(100vw-5rem)] lg:w-[calc(50vw-4rem)] xl:w-[calc(40vw-3rem)] max-w-2xl gold-border rounded-lg overflow-hidden group shadow-sm bg-white"
+          style="scroll-snap-align: start;"
           data-cursor-hover
         >
           <!-- Photo -->
@@ -86,26 +86,26 @@ const cases = [
               alt={c.client}
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(11,12,11,0.85) 0%, rgba(11,12,11,0.2) 60%, transparent 100%);"></div>
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.2) 60%, transparent 100%);"></div>
             <!-- Title over image -->
             <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-              <p class="font-mono text-[0.55rem] tracking-[0.28em] uppercase mb-2" style="color: var(--gold);">{c.category}</p>
-              <h3 class="font-display font-light text-3xl sm:text-4xl leading-tight" style="color: var(--cream);">{c.client}</h3>
+              <p class="font-mono text-[0.55rem] tracking-[0.28em] uppercase mb-2" style="color: #60a5fa;">{c.category}</p>
+              <h3 class="font-display font-semibold text-3xl sm:text-4xl leading-tight" style="color: #ffffff;">{c.client}</h3>
             </div>
           </div>
 
           <!-- Content -->
           <div class="p-6 sm:p-8">
-            <p class="font-body text-sm leading-relaxed mb-8" style="color: rgba(240,235,225,0.55); line-height: 1.8;">
+            <p class="font-body text-sm leading-relaxed mb-8" style="color: var(--text-dim); line-height: 1.8;">
               {c.result}
             </p>
 
             <!-- Metrics -->
-            <div class="grid grid-cols-3 gap-4 pt-6 border-t" style="border-color: rgba(201,169,110,0.12);">
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t" style="border-color: rgba(15,23,42,0.06);">
               {c.metrics.map((m) => (
                 <div>
-                  <p class="font-display font-light text-3xl sm:text-4xl mb-1" style="color: var(--cream);">{m.value}</p>
-                  <p class="font-mono text-[0.52rem] tracking-widest uppercase leading-tight" style="color: var(--muted);">{m.label}</p>
+                  <p class="font-display font-semibold text-3xl sm:text-4xl mb-1 text-blue-600">{m.value}</p>
+                  <p class="font-mono text-[0.52rem] tracking-widest uppercase leading-tight" style="color: var(--text-muted);">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -128,8 +128,8 @@ const cases = [
       const index = Math.round(track.scrollLeft / track.offsetWidth);
       dots.forEach((dot, i) => {
         (dot as HTMLElement).style.background = i === index
-          ? 'var(--gold)'
-          : 'rgba(201,169,110,0.25)';
+          ? 'var(--blue)'
+          : 'rgba(37,99,235,0.25)';
       });
     });
     dots.forEach((dot) => {

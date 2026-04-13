@@ -1,7 +1,7 @@
 ---
-// About section: asymmetric layout — Elyse "About" style
+// About section: asymmetric layout
 ---
-<section id="about" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--dark);">
+<section id="about" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--bg);">
 
   <div class="section-divider"></div>
 
@@ -15,18 +15,18 @@
     <!-- Main grid: left text + center photo + right text -->
     <div class="grid lg:grid-cols-[1fr_1.1fr_1fr] gap-10 lg:gap-8 items-center mb-20 lg:mb-28">
 
-      <!-- Left: large italic headline -->
+      <!-- Left: large headline -->
       <div data-reveal="left" data-delay="100">
-        <h2 class="font-display font-light leading-tight mb-6" style="font-size: clamp(2.2rem, 5vw, 4.5rem); color: var(--cream);">
-          <span class="italic" style="color: var(--gold);">Gestão eficiente</span><br/>
+        <h2 class="font-display font-bold leading-tight mb-6" style="font-size: clamp(2.2rem, 5vw, 4.5rem); color: var(--text);">
+          <span style="color: var(--blue);">Gestão eficiente</span><br/>
           sem complicações.
         </h2>
-        <p class="font-mono text-[0.6rem] tracking-[0.22em] uppercase mb-4" style="color: var(--muted);">Tecnologia para síndicos</p>
-        <div class="h-px w-16" style="background: rgba(201,169,110,0.4);"></div>
+        <p class="font-mono text-[0.6rem] tracking-[0.22em] uppercase mb-4" style="color: var(--text-muted);">Tecnologia para síndicos</p>
+        <div class="h-px w-16" style="background: rgba(37,99,235,0.3);"></div>
       </div>
 
       <!-- Center: photo -->
-      <div class="img-zoom rounded-sm overflow-hidden aspect-[3/4] lg:aspect-auto lg:h-[580px]" data-reveal="scale" data-delay="50">
+      <div class="img-zoom rounded-lg overflow-hidden aspect-[3/4] lg:aspect-auto lg:h-[580px]" data-reveal="scale" data-delay="50">
         <img
           src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85&auto=format&fit=crop"
           alt="Área comum de condomínio moderno"
@@ -36,56 +36,53 @@
 
       <!-- Right: description -->
       <div data-reveal="right" data-delay="150">
-        <p class="font-body text-sm sm:text-base leading-relaxed mb-6" style="color: rgba(240,235,225,0.6); line-height: 1.8;">
+        <p class="font-body text-sm sm:text-base leading-relaxed mb-6" style="color: var(--text-dim); line-height: 1.8;">
           Cada detalhe da Cyllor reflete um compromisso com a excelência operacional. Da comunicação entre moradores ao controle de acesso, a plataforma une todos os módulos em um fluxo claro e previsível.
         </p>
-        <p class="font-body text-sm sm:text-base leading-relaxed" style="color: rgba(240,235,225,0.6); line-height: 1.8;">
-          Seja um condomínio clube, residencial ou de médio porte, a Cyllor reduz retrabalho, conflitos e a dependência de grupos dispersos.
-        </p>
 
-        <!-- Gold line accent -->
+        <!-- Blue line accent -->
         <div class="mt-8 flex items-center gap-4">
-          <div class="h-px flex-1" style="background: rgba(201,169,110,0.2);"></div>
-          <span class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: var(--gold);">Cyllor</span>
+          <div class="h-px flex-1" style="background: rgba(37,99,235,0.15);"></div>
+          <span class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: var(--blue);">Cyllor</span>
         </div>
       </div>
     </div>
 
-    <!-- Stats row — Elyse numbers style -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 pt-12 border-t" style="border-color: rgba(201,169,110,0.12);">
+    <!-- Stats row -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 pt-12 border-t" style="border-color: rgba(15,23,42,0.06);">
 
       <div data-reveal data-delay="0">
-        <p class="font-display font-light leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--cream);">
-          2–4<span class="text-2xl" style="color: var(--gold);"> sem</span>
+        <p class="font-display font-bold leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text);">
+          2–4<span class="text-2xl" style="color: var(--blue);"> sem</span>
         </p>
-        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--muted);">
+        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--text-muted);">
           implantação assistida<br/>sem depender de improviso
         </p>
       </div>
 
       <div data-reveal data-delay="80">
-        <p class="font-display font-light leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--cream);">
-          1<span class="text-2xl" style="color: var(--gold);"> canal</span>
+        <p class="font-display font-bold leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text);">
+          1<span class="text-2xl" style="color: var(--blue);"> canal</span>
         </p>
-        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--muted);">
+        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--text-muted);">
           comunicação centralizada<br/>para gestão e moradores
         </p>
       </div>
 
       <div data-reveal data-delay="160">
-        <p class="font-display font-light leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--cream);">
-          60<span class="text-2xl" style="color: var(--gold);">%</span>
+        <p class="font-display font-bold leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text);">
+          60<span class="text-2xl" style="color: var(--blue);">%</span>
         </p>
-        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--muted);">
+        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--text-muted);">
           redução de conflitos<br/>em reservas e acesso
         </p>
       </div>
 
       <div data-reveal data-delay="240">
-        <p class="font-display font-light leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--cream);">
-          24<span class="text-2xl" style="color: var(--gold);">/7</span>
+        <p class="font-display font-bold leading-none mb-3" style="font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text);">
+          24<span class="text-2xl" style="color: var(--blue);">/7</span>
         </p>
-        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--muted);">
+        <p class="font-mono text-[0.58rem] tracking-[0.22em] uppercase leading-relaxed" style="color: var(--text-muted);">
           histórico e registros<br/>sempre disponíveis
         </p>
       </div>

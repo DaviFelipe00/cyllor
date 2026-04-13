@@ -14,7 +14,7 @@ const links = [
 
     <!-- Logo -->
     <a href="/" class="group flex items-center gap-2" data-cursor-hover>
-      <span class="font-display font-light text-xl sm:text-2xl tracking-[0.22em] text-cyllor-cream transition-colors duration-300 group-hover:text-cyllor-gold">
+      <span class="nav-logo font-display font-semibold text-xl sm:text-2xl tracking-[0.18em] transition-colors duration-300">
         CYLLOR
       </span>
     </a>
@@ -26,10 +26,10 @@ const links = [
           <a
             href={link.href}
             data-cursor-hover
-            class="relative font-mono text-[0.6rem] tracking-[0.22em] uppercase text-cyllor-cream-dim hover:text-cyllor-cream transition-colors duration-300 group"
+            class="nav-link relative font-mono text-[0.6rem] tracking-[0.22em] uppercase transition-colors duration-300 group"
           >
             {link.label}
-            <span class="absolute -bottom-1 left-0 h-px w-0 bg-cyllor-gold transition-all duration-400 group-hover:w-full" />
+            <span class="absolute -bottom-1 left-0 h-px w-0 bg-blue-500 transition-all duration-400 group-hover:w-full" />
           </a>
         </li>
       ))}
@@ -39,6 +39,8 @@ const links = [
       href="#contact"
       class="btn-gold hidden md:inline-flex"
       data-cursor-hover
+      style="color: #ffffff; border-color: rgba(255,255,255,0.5);"
+      id="nav-cta"
     >
       Agendar demo
     </a>
@@ -49,11 +51,11 @@ const links = [
       aria-label="Abrir menu"
       aria-expanded="false"
       aria-controls="nav-drawer"
-      class="md:hidden flex flex-col gap-[6px] p-2 -mr-2"
+      class="nav-hamburger md:hidden flex flex-col gap-[6px] p-2 -mr-2"
     >
-      <span class="nav-bar block w-6 h-px bg-cyllor-cream transition-all duration-300"></span>
-      <span class="nav-bar block w-4 h-px bg-cyllor-gold transition-all duration-300"></span>
-      <span class="nav-bar block w-6 h-px bg-cyllor-cream transition-all duration-300"></span>
+      <span class="nav-bar block w-6 h-px bg-current transition-all duration-300"></span>
+      <span class="nav-bar block w-4 h-px bg-blue-500 transition-all duration-300"></span>
+      <span class="nav-bar block w-6 h-px bg-current transition-all duration-300"></span>
     </button>
   </div>
 </nav>
@@ -62,14 +64,15 @@ const links = [
 <div
   id="nav-drawer"
   class="fixed inset-0 z-40 flex flex-col justify-center items-center gap-10 translate-x-full transition-transform duration-500 ease-in-out md:hidden"
-  style="background: rgba(11,12,11,0.97); backdrop-filter: blur(20px);"
+  style="background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);"
   aria-hidden="true"
 >
   {links.map((link) => (
     <a
       href={link.href}
       data-nav-link
-      class="font-display font-light text-4xl text-cyllor-cream hover:text-cyllor-gold transition-colors duration-300 tracking-wider"
+      class="font-display font-semibold text-4xl hover:text-blue-600 transition-colors duration-300 tracking-wider"
+      style="color: #0f172a;"
     >
       {link.label}
     </a>
@@ -88,6 +91,7 @@ const links = [
   const drawer   = document.getElementById('nav-drawer');
   const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
   const bars     = Array.from(document.querySelectorAll('.nav-bar'));
+  const navCta   = document.getElementById('nav-cta');
   let open = false;
 
   function setOpen(state: boolean) {
@@ -106,6 +110,21 @@ const links = [
 
   toggle?.addEventListener('click', () => setOpen(!open));
   navLinks.forEach(l => l.addEventListener('click', () => setOpen(false)));
+
+  // Update CTA style on scroll
+  const siteNav = document.getElementById('site-nav');
+  window.addEventListener('scroll', () => {
+    if (navCta) {
+      if (window.scrollY > 60) {
+        navCta.style.color = '';
+        navCta.style.borderColor = '';
+      } else {
+        navCta.style.color = '#ffffff';
+        navCta.style.borderColor = 'rgba(255,255,255,0.5)';
+      }
+    }
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && open) setOpen(false);
   });
