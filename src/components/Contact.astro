@@ -1,0 +1,105 @@
+---
+// Contact: split layout — left dark photo, right dark-green form — Elyse "Envision" style
+const contactState = Astro.url.searchParams.get('contact');
+---
+<section id="contact" class="relative overflow-hidden" style="background: var(--dark);">
+
+  <div class="section-divider"></div>
+
+  <div class="grid lg:grid-cols-2 min-h-screen lg:min-h-[85vh]">
+
+    <!-- Left: photo with text overlay -->
+    <div class="relative hidden lg:block img-zoom">
+      <img
+        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85&auto=format&fit=crop"
+        alt="Condomínio residencial sofisticado"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(11,12,11,0.45) 0%, rgba(11,12,11,0.2) 100%); background-blend-mode: multiply;"></div>
+      <div class="absolute inset-0 flex items-end p-12 xl:p-16">
+        <div>
+          <h2 class="font-display font-light italic text-4xl xl:text-5xl mb-4" style="color: var(--cream);">
+            Visualize sua<br/>operação com a Cyllor
+          </h2>
+          <p class="font-mono text-[0.6rem] tracking-widest uppercase" style="color: rgba(240,235,225,0.45);">
+            Nossa equipe entrará em contato em breve
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form panel -->
+    <div class="flex flex-col justify-center px-8 sm:px-12 xl:px-16 py-20 sm:py-28" style="background: #1a2e26;">
+      <!-- Mobile heading -->
+      <div class="lg:hidden mb-10">
+        <h2 class="font-display font-light italic text-4xl sm:text-5xl mb-3" style="color: var(--cream);">
+          Agende uma<br/>demonstração
+        </h2>
+        <p class="font-mono text-[0.58rem] tracking-widest uppercase" style="color: rgba(240,235,225,0.4);">
+          Nossa equipe entrará em contato em breve
+        </p>
+      </div>
+
+      {contactState === 'success' && (
+        <div class="mb-8 px-5 py-4 text-sm rounded" style="background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.3); color: var(--gold);">
+          Recebemos sua mensagem. Vamos retornar em breve.
+        </div>
+      )}
+      {contactState === 'error' && (
+        <div class="mb-8 px-5 py-4 text-sm rounded" style="background: rgba(200,80,80,0.1); border: 1px solid rgba(200,80,80,0.3); color: #e08080;">
+          Não foi possível enviar. Revise os campos e tente novamente.
+        </div>
+      )}
+
+      <form action="/api/contact" method="POST" class="flex flex-col gap-8 max-w-md w-full">
+
+        <div class="flex flex-col gap-1.5">
+          <label class="elyse-label" for="c-name">Nome</label>
+          <input id="c-name" name="name" required minlength="2" class="elyse-input" placeholder="Seu nome completo" />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="elyse-label" for="c-email">E-mail</label>
+          <input id="c-email" name="email" type="email" required class="elyse-input" placeholder="voce@empresa.com" />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="elyse-label" for="c-company">Condomínio ou empresa</label>
+          <input id="c-company" name="company" required minlength="2" class="elyse-input" placeholder="Nome do condomínio ou administradora" />
+          <input type="hidden" name="interest" value="Solicitação de demonstração" />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="elyse-label" for="c-challenge">Mensagem</label>
+          <textarea
+            id="c-challenge"
+            name="challenge"
+            required
+            minlength="10"
+            rows="3"
+            class="elyse-input resize-none"
+            placeholder="Descreva o principal gargalo da operação atual"
+          ></textarea>
+        </div>
+
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+        <div class="flex flex-col gap-3">
+          <button
+            type="submit"
+            class="btn-gold-fill w-full justify-center"
+            data-cursor-hover
+          >
+            Agendar demonstração
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="font-mono text-[0.55rem] tracking-widest text-center leading-relaxed" style="color: rgba(240,235,225,0.3);">
+            Ao enviar, você concorda com nossa política de privacidade.<br/>Seus dados são usados apenas para retorno comercial.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

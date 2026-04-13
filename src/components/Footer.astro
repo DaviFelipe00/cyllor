@@ -1,91 +1,81 @@
 ---
 ---
-<footer id="footer" class="relative pt-24 sm:pt-32 pb-12 sm:pb-16 px-5 sm:px-8 lg:px-16 overflow-hidden">
+<footer id="footer" class="relative pt-16 sm:pt-20 pb-10 px-6 sm:px-10 lg:px-14 overflow-hidden" style="background: var(--black);">
 
   <!-- Top divider -->
-  <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-cyllor-cyan-dim to-transparent opacity-40" />
+  <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(201,169,110,0.2), transparent);"></div>
 
-  <!-- Ambient glow -->
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[200px] sm:h-[300px] pointer-events-none"
-    style="background: radial-gradient(ellipse, rgba(0,240,255,0.07) 0%, transparent 70%); filter: blur(40px);"
-  />
+  <div class="max-w-7xl mx-auto">
 
-  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 pb-10 mb-10 border-b" style="border-color: rgba(201,169,110,0.1);">
 
-    <!-- Big CTA -->
-    <div id="footer-cta" class="text-center mb-16 sm:mb-24">
-      <p class="section-label justify-center mb-5 sm:mb-6">Pronto para evoluir?</p>
-      <h2 class="font-display font-bold leading-tight text-white mb-8 sm:mb-10"
-          style="font-size: clamp(2rem, 8vw, 7rem);">
-        Vamos construir algo
-        <br/>
-        <span class="text-gradient">extraordinário.</span>
-      </h2>
-      <a
-        href="mailto:contato@cyllor.com"
-        data-cursor-hover
-        class="inline-flex items-center gap-3 sm:gap-4 px-7 sm:px-10 py-4 sm:py-5 bg-cyllor-cyan text-cyllor-dark font-display font-bold text-base sm:text-lg tracking-wide hover:bg-white transition-colors duration-300 group active:scale-95"
-      >
-        contato@cyllor.com
-        <svg class="transition-transform group-hover:translate-x-1" width="18" height="18" viewBox="0 0 20 20" fill="none">
-          <path d="M3 10h14M11 5l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <!-- Brand -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <span class="font-display font-light text-2xl tracking-[0.2em] mb-5 block" style="color: var(--cream);">
+          CY<span class="italic" style="color: var(--gold);">.</span>LOR
+        </span>
+        <p class="font-mono text-[0.58rem] tracking-[0.15em] leading-relaxed uppercase" style="color: var(--muted);">
+          Software para condomínios<br/>
+          com foco em rotina e facilidade.<br/>
+          Atendimento para síndicos,<br/>
+          administradoras e portarias.
+        </p>
+      </div>
+
+      <!-- Produto -->
+      <div>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Produto</p>
+        <nav class="flex flex-col gap-3">
+          {[
+            { label: 'Como funciona', href: '#lifestyle' },
+            { label: 'Facilidades',   href: '#expertise' },
+            { label: 'Resultados',    href: '#cases' },
+            { label: 'Agendar demo',  href: '#contact' },
+          ].map(link => (
+            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Legal</p>
+        <nav class="flex flex-col gap-3">
+          {[
+            { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
+            { label: 'Termos de Uso',           href: '/termos-de-uso' },
+            { label: 'Compliance',              href: '/compliance' },
+          ].map(link => (
+            <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: var(--gold);">Contato</p>
+        <div class="flex flex-col gap-3">
+          <a href="mailto:contato@cyllor.com" class="font-body text-sm transition-colors duration-300 hover:text-cyllor-gold" style="color: rgba(240,235,225,0.5);">
+            contato@cyllor.com
+          </a>
+          <a href="#contact" class="btn-gold text-center mt-2">
+            Agendar demo
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Bottom bar -->
-    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-8 pt-10 sm:pt-12 border-t border-cyllor-border">
-
-      <!-- Company Info -->
-      <div class="flex flex-col gap-4 order-1 lg:max-w-xs">
-        <span class="font-display font-bold text-xl tracking-widest text-white">
-          CY<span class="text-cyllor-cyan">_</span>LOR
-        </span>
-        <div class="font-mono text-xs text-cyllor-muted flex flex-col gap-2 leading-relaxed">
-          <span>CNPJ: 45.123.456/0001-89</span>
-          <span>Av. Brigadeiro Faria Lima, 3477 - 14º Andar</span>
-          <span>Itaim Bibi, São Paulo - SP</span>
-          <span>+55 11 9999-9999</span>
-        </div>
-      </div>
-
-      <!-- Links -->
-      <div class="flex flex-col sm:flex-row gap-8 sm:gap-16 order-2 w-full lg:w-auto">
-        <div class="flex flex-col gap-4">
-          <span class="font-display font-medium text-sm text-white mb-1 uppercase tracking-widest">Empresa</span>
-          <a href="#expertise" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Expertise</a>
-          <a href="#architecture" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Arquitetura</a>
-          <a href="#cases" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Cases de Sucesso</a>
-        </div>
-        <div class="flex flex-col gap-4">
-          <span class="font-display font-medium text-sm text-white mb-1 uppercase tracking-widest">Legal</span>
-          <a href="#" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Política de Privacidade</a>
-          <a href="#" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Termos de Uso</a>
-          <a href="#" class="font-body text-sm text-cyllor-silver hover:text-cyllor-cyan transition-colors">Compliance</a>
-        </div>
-      </div>
-
-      <!-- Social & Copyright -->
-      <div class="flex flex-col items-start lg:items-end justify-between gap-6 order-3 w-full lg:w-auto self-stretch lg:self-auto">
-        <div class="flex items-center gap-6">
-          {[
-            { label: 'LinkedIn', href: '#', icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>` },
-            { label: 'GitHub',  href: '#', icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>` },
-          ].map((s) => (
-            <a
-              href={s.href}
-              data-cursor-hover
-              aria-label={s.label}
-              class="text-cyllor-muted hover:text-cyllor-cyan transition-colors duration-300 p-2 -m-2"
-              set:html={s.icon}
-            />
-          ))}
-        </div>
-        <p class="font-mono text-xs text-cyllor-muted text-left lg:text-right leading-relaxed">
-          © {new Date().getFullYear()} Cyllor Consultoria de TI Ltda.<br/>
-          Todos os direitos reservados.
-        </p>
-      </div>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: rgba(240,235,225,0.2);">
+        © {new Date().getFullYear()} Cyllor. Software para condomínios.
+      </p>
+      <!-- Gold line -->
+      <div class="h-px w-16 sm:w-24" style="background: rgba(201,169,110,0.3);"></div>
     </div>
   </div>
 </footer>

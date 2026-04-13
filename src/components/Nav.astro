@@ -1,107 +1,112 @@
 ---
 const links = [
-  { label: 'Expertise',   href: '#expertise' },
-  { label: 'Arquitetura', href: '#architecture' },
-  { label: 'Cases',       href: '#cases' },
-  { label: 'Contato',     href: '#footer' },
+  { label: 'Como funciona', href: '#lifestyle' },
+  { label: 'Facilidades',   href: '#expertise' },
+  { label: 'Resultados',    href: '#cases' },
 ];
 ---
 <nav
   id="site-nav"
-  class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-8 py-4 sm:py-6"
-  style="background: linear-gradient(180deg, rgba(5,5,5,0.97) 0%, transparent 100%); backdrop-filter: blur(4px);"
+  class="fixed top-0 left-0 right-0 z-50 px-6 sm:px-8 lg:px-14 py-5 transition-all duration-500"
+  style="background: transparent;"
 >
-  <!-- Logo -->
-  <a href="/" class="group flex items-center gap-3" data-cursor-hover>
-    <span class="font-display font-bold text-lg sm:text-xl tracking-widest text-white group-hover:text-cyllor-cyan transition-colors duration-300">
-      CY<span class="text-cyllor-cyan">_</span>LOR
-    </span>
-  </a>
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-  <!-- Desktop links -->
-  <ul class="hidden md:flex items-center gap-8">
-    {links.map((link) => (
-      <li>
-        <a
-          href={link.href}
-          data-magnetic
-          data-magnetic-strength="0.3"
-          data-cursor-hover
-          class="relative font-body text-sm text-cyllor-silver-dim hover:text-white transition-colors duration-300 group"
-        >
-          {link.label}
-          <span class="absolute bottom-0 left-0 h-px w-0 bg-cyllor-cyan transition-all duration-300 group-hover:w-full" />
-        </a>
-      </li>
-    ))}
-  </ul>
+    <!-- Logo -->
+    <a href="/" class="group flex items-center gap-2" data-cursor-hover>
+      <span class="font-display font-light text-xl sm:text-2xl tracking-[0.22em] text-cyllor-cream transition-colors duration-300 group-hover:text-cyllor-gold">
+        CY<span class="text-cyllor-gold italic">.</span>LOR
+      </span>
+    </a>
 
-  <!-- Desktop CTA -->
-  <a
-    href="mailto:contato@cyllor.com"
-    data-magnetic
-    data-cursor-hover
-    class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono tracking-widest uppercase text-cyllor-dark bg-cyllor-cyan hover:bg-white transition-colors duration-300 font-semibold"
-  >
-    Iniciar Projeto
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-10">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-cursor-hover
+            class="relative font-mono text-[0.6rem] tracking-[0.22em] uppercase text-cyllor-cream-dim hover:text-cyllor-cream transition-colors duration-300 group"
+          >
+            {link.label}
+            <span class="absolute -bottom-1 left-0 h-px w-0 bg-cyllor-gold transition-all duration-400 group-hover:w-full" />
+          </a>
+        </li>
+      ))}
+    </ul>
 
-  <!-- Mobile hamburger -->
-  <button
-    id="nav-toggle"
-    aria-label="Abrir menu"
-    class="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
-  >
-    <span class="nav-bar block w-6 h-px bg-white transition-all duration-300"></span>
-    <span class="nav-bar block w-4 h-px bg-cyllor-cyan transition-all duration-300"></span>
-    <span class="nav-bar block w-6 h-px bg-white transition-all duration-300"></span>
-  </button>
+    <a
+      href="#contact"
+      class="btn-gold hidden md:inline-flex"
+      data-cursor-hover
+    >
+      Agendar demo
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="nav-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="nav-drawer"
+      class="md:hidden flex flex-col gap-[6px] p-2 -mr-2"
+    >
+      <span class="nav-bar block w-6 h-px bg-cyllor-cream transition-all duration-300"></span>
+      <span class="nav-bar block w-4 h-px bg-cyllor-gold transition-all duration-300"></span>
+      <span class="nav-bar block w-6 h-px bg-cyllor-cream transition-all duration-300"></span>
+    </button>
+  </div>
 </nav>
 
 <!-- Mobile Drawer -->
 <div
   id="nav-drawer"
-  class="fixed inset-0 z-40 flex flex-col justify-center items-center gap-8 bg-[#050505]/98 translate-x-full transition-transform duration-500 ease-in-out md:hidden"
-  style="backdrop-filter: blur(8px);"
+  class="fixed inset-0 z-40 flex flex-col justify-center items-center gap-10 translate-x-full transition-transform duration-500 ease-in-out md:hidden"
+  style="background: rgba(11,12,11,0.97); backdrop-filter: blur(20px);"
+  aria-hidden="true"
 >
   {links.map((link) => (
     <a
       href={link.href}
       data-nav-link
-      class="font-display font-bold text-3xl text-white hover:text-cyllor-cyan transition-colors duration-300 tracking-tight"
+      class="font-display font-light text-4xl text-cyllor-cream hover:text-cyllor-gold transition-colors duration-300 tracking-wider"
     >
       {link.label}
     </a>
   ))}
   <a
-    href="mailto:contato@cyllor.com"
+    href="#contact"
     data-nav-link
-    class="mt-6 inline-flex items-center gap-3 px-8 py-4 bg-cyllor-cyan text-cyllor-dark font-display font-bold text-base tracking-widest uppercase"
+    class="btn-gold mt-4"
   >
-    Iniciar Projeto →
+    Agendar demo
   </a>
 </div>
 
 <script>
-  const toggle  = document.getElementById('nav-toggle');
-  const drawer  = document.getElementById('nav-drawer');
-  const navLinks = document.querySelectorAll('[data-nav-link]');
-  const bars    = document.querySelectorAll('.nav-bar');
+  const toggle   = document.getElementById('nav-toggle');
+  const drawer   = document.getElementById('nav-drawer');
+  const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+  const bars     = Array.from(document.querySelectorAll('.nav-bar'));
   let open = false;
 
   function setOpen(state: boolean) {
+    if (!toggle || !drawer) return;
     open = state;
-    drawer!.style.transform = open ? 'translateX(0)' : 'translateX(100%)';
+    drawer.style.transform = open ? 'translateX(0)' : 'translateX(100%)';
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
-    // Animate bars
-    bars[0].style.transform = open ? 'translateY(6px) rotate(45deg)'  : '';
+    bars[0].style.transform = open ? 'translateY(7px) rotate(45deg)'  : '';
     bars[1].style.opacity   = open ? '0' : '1';
-    bars[2].style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+    bars[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+    if (open) navLinks[0]?.focus();
+    else toggle.focus();
   }
 
   toggle?.addEventListener('click', () => setOpen(!open));
   navLinks.forEach(l => l.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open) setOpen(false);
+  });
 </script>

@@ -1,0 +1,85 @@
+---
+// Lifestyle: "Como funciona" — dark cards with photo top, Elyse-style
+const items = [
+  {
+    title: 'Portaria mais ágil',
+    desc: 'Autorizações de visitantes, entregas e acesso com histórico simples para equipe e moradores. Menos improviso, mais rastreabilidade.',
+    tag: 'Controle de Acesso',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Reservas sem atrito',
+    desc: 'Salão, churrasqueira, piscina e demais áreas comuns organizadas em um calendário fácil de usar. Regras visíveis, conflitos eliminados.',
+    tag: 'Áreas Comuns',
+    img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Comunicados e facilidades',
+    desc: 'Avisos, documentos, assembleias e solicitações reunidos em uma experiência clara para síndico, administradora e morador.',
+    tag: 'Comunicação',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop',
+  },
+];
+---
+<section id="lifestyle" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--darker);">
+
+  <div class="section-divider"></div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+
+    <!-- Header -->
+    <div class="mb-14 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+      <div data-reveal>
+        <span class="section-label mb-5 block">(Como funciona)</span>
+        <h2 class="font-display font-light leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--cream);">
+          O fluxo do condomínio,<br/>
+          <span class="italic" style="color: var(--gold);">simplificado.</span>
+        </h2>
+      </div>
+      <p class="font-body text-sm leading-relaxed max-w-xs hidden sm:block" style="color: var(--muted);" data-reveal="right">
+        Cada módulo foi desenhado para reduzir o retrabalho da gestão e melhorar a experiência de quem mora.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+      {items.map((item, i) => (
+        <article
+          class="group flex flex-col gold-border rounded-sm overflow-hidden"
+          style="background: var(--surface);"
+          data-reveal
+          data-delay={i * 120}
+          data-cursor-hover
+        >
+          <!-- Photo top -->
+          <div class="img-zoom aspect-[4/3] overflow-hidden relative">
+            <img
+              src={item.img}
+              alt={item.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(11,12,11,0.7) 0%, transparent 60%);"></div>
+            <!-- Tag overlay -->
+            <div class="absolute bottom-4 left-4">
+              <span class="font-mono text-[0.55rem] tracking-[0.22em] uppercase px-3 py-1.5 rounded-full" style="background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.3); color: var(--gold);">
+                {item.tag}
+              </span>
+            </div>
+          </div>
+
+          <!-- Text content -->
+          <div class="p-6 sm:p-8 flex flex-col flex-1">
+            <h3 class="font-display font-light text-2xl sm:text-3xl mb-4 transition-colors duration-300 group-hover:text-cyllor-gold" style="color: var(--cream);">
+              {item.title}
+            </h3>
+            <p class="font-body text-sm leading-relaxed flex-1" style="color: rgba(240,235,225,0.55); line-height: 1.8;">
+              {item.desc}
+            </p>
+            <!-- Gold accent line -->
+            <div class="mt-6 h-px w-0 group-hover:w-full transition-all duration-500" style="background: var(--gold); opacity: 0.4;"></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

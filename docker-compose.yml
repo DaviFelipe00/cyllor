@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-4321}:4321"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4321
+      DATABASE_PATH: /app/data/cyllor.sqlite
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-change-me}
+    volumes:
+      - cyllor_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  cyllor_data:

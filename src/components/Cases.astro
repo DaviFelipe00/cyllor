@@ -1,94 +1,111 @@
 ---
+// Cases: "Resultados" — Elyse "Our Livings" horizontal slider style
 const cases = [
   {
-    client: 'Grupo Financeiro Nacional',
-    category: 'Cloud Migration',
-    result: 'Redução de 68% no custo de infraestrutura após migração para AWS com Kubernetes e auto-scaling.',
+    num: '01',
+    client: 'Comunicação Descentralizada',
+    category: 'Comunicação e reservas',
+    result: 'Centralização de avisos e reservas das áreas comuns em um fluxo mais simples para moradores, síndico e equipe administrativa.',
     metrics: [
-      { value: '68', suffix: '%', label: 'Custo' },
-      { value: '99.97', suffix: '%', label: 'Uptime' },
-      { value: '3', suffix: 'x', label: 'Deploy' },
+      { value: '72%', label: 'Menos mensagens soltas' },
+      { value: '1', label: 'Canal principal' },
+      { value: '24h', label: 'Confirmações rápidas' },
     ],
-    gradient: 'from-blue-900/20 to-transparent',
+    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    client: 'Retailer E-commerce',
-    category: 'Performance Engineering',
-    result: 'Plataforma reengenheirada suportou 40x mais pico de tráfego na Black Friday sem incidentes.',
+    num: '02',
+    client: 'Agenda Sobrecarregada',
+    category: 'Agenda e controle do uso',
+    result: 'Organização da agenda de salão, churrasqueira e quadra com menos conflitos e mais previsibilidade para moradores.',
     metrics: [
-      { value: '40', suffix: 'x', label: 'Capacidade' },
-      { value: '0', suffix: '', label: 'Incidentes' },
-      { value: '220', suffix: 'ms', label: 'P99' },
+      { value: '60%', label: 'Menos conflitos' },
+      { value: '3×', label: 'Mais adesão' },
+      { value: '0', label: 'Planilhas paralelas' },
     ],
-    gradient: 'from-emerald-900/20 to-transparent',
+    img: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    client: 'HealthTech Startup',
-    category: 'Data Platform',
-    result: 'Data Lakehouse processando 2TB/dia em tempo real com dashboards para 500+ analistas simultâneos.',
+    num: '03',
+    client: 'Portaria com Alto Volume',
+    category: 'Acesso e visitantes',
+    result: 'Fluxo de autorização mais claro para moradores, recepção mais rápida na entrada e melhor rastreabilidade.',
     metrics: [
-      { value: '2', suffix: 'TB', label: 'Dados/dia' },
-      { value: '500', suffix: '+', label: 'Usuários' },
-      { value: '4', suffix: 's', label: 'Query P95' },
+      { value: '45%', label: 'Menos espera' },
+      { value: '100%', label: 'Histórico centralizado' },
+      { value: '1', label: 'Fluxo de entrada' },
     ],
-    gradient: 'from-purple-900/20 to-transparent',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80&auto=format&fit=crop',
   },
 ];
 ---
-<section id="cases" class="relative py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-16 overflow-hidden">
+<section id="cases" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--darker);">
 
-  <!-- Top divider -->
-  <div class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-cyllor-border to-transparent" />
+  <div class="section-divider"></div>
 
-  <div class="max-w-7xl mx-auto">
-
-    <!-- Header -->
-    <div class="mb-12 sm:mb-16 lg:mb-20 case-card">
-      <p class="section-label mb-4 sm:mb-5">03 / Cases de Performance</p>
-      <h2 class="font-display font-bold text-section text-white leading-tight max-w-2xl">
-        Resultados que falam
-        <span class="text-gradient"> por si mesmos.</span>
-      </h2>
+  <div class="px-6 sm:px-10 lg:px-14 mb-12 sm:mb-16 max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+      <div data-reveal>
+        <span class="section-label mb-5 block">(Resultados)</span>
+        <h2 class="font-display font-light leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--cream);">
+          Cenários reais,<br/>
+          <span class="italic" style="color: var(--gold);">ganhos concretos</span>
+        </h2>
+      </div>
+      <!-- Navigation dots -->
+      <div class="flex gap-3 items-center" id="cases-nav">
+        {cases.map((_, i) => (
+          <button
+            class="cases-dot w-8 h-px transition-all duration-300"
+            style={`background: ${i === 0 ? 'var(--gold)' : 'rgba(201,169,110,0.25)'};`}
+            data-index={i}
+            aria-label={`Ir para caso ${i+1}`}
+          ></button>
+        ))}
+      </div>
     </div>
+  </div>
 
-    <!-- Cases -->
-    <div class="space-y-5 sm:space-y-8">
+  <!-- Horizontal scroll container -->
+  <div class="relative">
+    <div
+      id="cases-track"
+      class="flex gap-5 sm:gap-6 pl-6 sm:pl-10 lg:pl-14 pr-6 sm:pr-10 overflow-x-auto"
+      style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;"
+    >
       {cases.map((c, i) => (
         <article
-          class="case-card group relative border border-cyllor-border hover:border-cyllor-cyan transition-all duration-500 overflow-hidden"
+          class="flex-none w-[calc(100vw-3rem)] sm:w-[calc(100vw-5rem)] lg:w-[calc(50vw-4rem)] xl:w-[calc(40vw-3rem)] max-w-2xl gold-border rounded-sm overflow-hidden group"
+          style="background: var(--surface); scroll-snap-align: start;"
           data-cursor-hover
         >
-          <div class={`absolute inset-0 bg-gradient-to-r ${c.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-
-          <div class="relative z-10 p-6 sm:p-10 lg:p-12">
-
-            <!-- Category + index row -->
-            <div class="flex items-center gap-4 mb-4">
-              <span class="font-mono text-xs text-cyllor-cyan-dim tracking-widest uppercase">{c.category}</span>
-              <span class="w-px h-4 bg-cyllor-border" />
-              <span class="font-mono text-xs text-cyllor-muted">{String(i+1).padStart(2,'0')}</span>
+          <!-- Photo -->
+          <div class="img-zoom aspect-[16/9] sm:aspect-[16/10] relative">
+            <img
+              src={c.img}
+              alt={c.client}
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(11,12,11,0.85) 0%, rgba(11,12,11,0.2) 60%, transparent 100%);"></div>
+            <!-- Title over image -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+              <p class="font-mono text-[0.55rem] tracking-[0.28em] uppercase mb-2" style="color: var(--gold);">{c.category}</p>
+              <h3 class="font-display font-light text-3xl sm:text-4xl leading-tight" style="color: var(--cream);">{c.client}</h3>
             </div>
+          </div>
 
-            <!-- Client name -->
-            <h3 class="font-display font-bold text-white text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4 group-hover:text-cyllor-cyan transition-colors duration-300">
-              {c.client}
-            </h3>
-
-            <!-- Result text -->
-            <p class="font-body text-sm text-cyllor-silver-dim leading-relaxed mb-6 sm:mb-8 max-w-lg">
+          <!-- Content -->
+          <div class="p-6 sm:p-8">
+            <p class="font-body text-sm leading-relaxed mb-8" style="color: rgba(240,235,225,0.55); line-height: 1.8;">
               {c.result}
             </p>
 
-            <!-- Metrics — responsive grid -->
-            <div class="grid grid-cols-3 gap-3 sm:gap-6 border-t border-cyllor-border pt-6 sm:pt-8 mt-4">
+            <!-- Metrics -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t" style="border-color: rgba(201,169,110,0.12);">
               {c.metrics.map((m) => (
-                <div class="text-center sm:text-left flex flex-col justify-end">
-                  <div class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white glow-cyan mb-1 leading-none">
-                    <span data-count={m.value} data-suffix={m.suffix}>0{m.suffix}</span>
-                  </div>
-                  <p class="font-mono text-[10px] sm:text-xs text-cyllor-silver uppercase tracking-wider sm:tracking-widest leading-tight opacity-90">
-                    {m.label}
-                  </p>
+                <div>
+                  <p class="font-display font-light text-3xl sm:text-4xl mb-1" style="color: var(--cream);">{m.value}</p>
+                  <p class="font-mono text-[0.52rem] tracking-widest uppercase leading-tight" style="color: var(--muted);">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -98,3 +115,28 @@ const cases = [
     </div>
   </div>
 </section>
+
+<style>
+  #cases-track::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  const track = document.getElementById('cases-track');
+  const dots  = document.querySelectorAll('.cases-dot');
+  if (track) {
+    track.addEventListener('scroll', () => {
+      const index = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((dot, i) => {
+        (dot as HTMLElement).style.background = i === index
+          ? 'var(--gold)'
+          : 'rgba(201,169,110,0.25)';
+      });
+    });
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt((dot as HTMLElement).dataset.index || '0');
+        track.scrollTo({ left: idx * track.offsetWidth * 0.95, behavior: 'smooth' });
+      });
+    });
+  }
+</script>

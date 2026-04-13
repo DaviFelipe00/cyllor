@@ -3,20 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Expertise from '../components/Expertise.astro';
-import Architecture from '../components/Architecture.astro';
+import Lifestyle from '../components/Lifestyle.astro';
 import Cases from '../components/Cases.astro';
+import Contact from '../components/Contact.astro';
+import Proof from '../components/Proof.astro';
 import Footer from '../components/Footer.astro';
 ---
 <Layout
-  title="Cyllor — Consultoria de TI de Alto Nível"
-  description="Arquitetamos soluções tecnológicas de alta performance. Cloud, DevSecOps, Data & AI para empresas que exigem excelência."
+  title="Cyllor — Software para Condomínios"
+  description="Plataforma para condomínios com reservas, comunicados, controle de acesso e facilidades para síndicos, administradoras e moradores."
 >
   <Nav />
   <main>
     <Hero />
+    <Proof />
+    <Lifestyle />
     <Expertise />
-    <Architecture />
     <Cases />
+    <Contact />
   </main>
   <Footer />
 </Layout>

@@ -1,98 +1,101 @@
 ---
+// Expertise: "Facilidades" — dark cards with gold accents, Elyse mission/values style
 const skills = [
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="16" y="2" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="2" y="16" width="10" height="10" rx="2" stroke="#00f0ff" stroke-width="1.5"/><rect x="16" y="16" width="10" height="10" rx="2" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
-    title: 'Cloud Architecture',
-    desc: 'Infraestrutura escalável em AWS, GCP e Azure. IaC com Terraform e Pulumi para ambientes zero-downtime.',
-    tags: ['AWS', 'Terraform', 'K8s'],
+    num: '01',
+    title: 'Comunicados e avisos',
+    desc: 'Envio rápido de avisos, documentos e mensagens para todos os moradores, com histórico organizado. Menos ruído, mais informação.',
+    tags: ['Mural', 'Circulares', 'Documentos'],
   },
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#00f0ff" stroke-width="1.5"/><path d="M9 14l3 3 7-7" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'DevSecOps',
-    desc: 'Pipelines CI/CD com segurança integrada. Compliance automático, SAST, DAST e shift-left security.',
-    tags: ['GitHub Actions', 'SonarQube', 'Vault'],
+    num: '02',
+    title: 'Reservas de áreas comuns',
+    desc: 'Controle de salão, churrasqueira, quadra e espaços compartilhados em um calendário simples. Regras claras eliminam conflitos.',
+    tags: ['Calendário', 'Regras', 'Confirmação'],
   },
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l8-14 8 14" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="4" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
-    title: 'Data & Analytics',
-    desc: 'Plataformas de dados em tempo real. Data Lakehouse, streaming com Kafka e dashboards executivos.',
-    tags: ['Spark', 'Kafka', 'dbt'],
+    num: '03',
+    title: 'Controle de acesso',
+    desc: 'Visitantes, prestadores e entregas com autorização clara para portaria e registro centralizado. Rastreabilidade em tempo real.',
+    tags: ['Visitantes', 'Entregas', 'Portaria'],
   },
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="8" width="22" height="14" rx="2" stroke="#00f0ff" stroke-width="1.5"/><path d="M9 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
-    title: 'Modernização de Sistemas',
-    desc: 'Migração de legados para microserviços. Estratégia strangler fig, refatoração e domain-driven design.',
-    tags: ['Microservices', 'DDD', 'Event Sourcing'],
+    num: '04',
+    title: 'Rotina financeira',
+    desc: 'Atalhos para boletos, documentos e solicitações frequentes sem depender de tantos canais paralelos.',
+    tags: ['Boletos', 'Arquivos', 'Solicitações'],
   },
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M4 14h20" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="14" r="6" stroke="#c0c8d8" stroke-width="1.5"/></svg>`,
-    title: 'AI & Machine Learning',
-    desc: 'MLOps, modelos LLM customizados e automação inteligente integrada ao seu core business.',
-    tags: ['LangChain', 'MLflow', 'PyTorch'],
+    num: '05',
+    title: 'Experiência do morador',
+    desc: 'Uma jornada mais amigável para resolver tarefas do condomínio pelo celular ou navegador, a qualquer hora.',
+    tags: ['App web', 'Morador', 'Atendimento'],
   },
   {
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 14C4 8.477 8.477 4 14 4s10 4.477 10 10-4.477 10-10 10S4 19.523 4 14z" stroke="#00f0ff" stroke-width="1.5"/><path d="M10 14l2 2 6-6" stroke="#c0c8d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'Observabilidade',
-    desc: 'Stack completa de monitoramento. SLOs, alertas inteligentes, rastreamento distribuído e custo cloud.',
-    tags: ['Grafana', 'Prometheus', 'OpenTelemetry'],
+    num: '06',
+    title: 'Indicadores da operação',
+    desc: 'Visão rápida do que está pendente, do que foi resolvido e do que mais gera demanda no condomínio.',
+    tags: ['Painel', 'Pendências', 'Acompanhamento'],
   },
 ];
 ---
-<section id="expertise" class="relative py-32 px-6 lg:px-16 overflow-hidden">
+<section id="expertise" class="relative py-24 sm:py-32 overflow-hidden" style="background: var(--dark);">
 
-  <!-- Faint divider line -->
-  <div class="absolute top-0 left-16 right-16 h-px bg-gradient-to-r from-transparent via-cyllor-border to-transparent" />
+  <div class="section-divider"></div>
 
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
 
-    <!-- Header -->
-    <div id="expertise-heading" class="mb-20">
-      <p class="section-label mb-5">01 / Expertise Interativa</p>
-      <h2 class="font-display font-bold text-section text-white leading-tight max-w-xl">
-        O que nos torna
-        <span class="text-gradient"> indispensáveis.</span>
-      </h2>
+    <!-- Header + mission statement -->
+    <div class="mb-16 sm:mb-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
+      <div data-reveal>
+        <span class="section-label mb-5 block">(Facilidades)</span>
+        <h2 class="font-display font-light leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--cream);">
+          Uma visão de operação<br/>
+          <span class="italic" style="color: var(--gold);">inteligente</span>
+        </h2>
+      </div>
+      <div data-reveal="right" data-delay="100">
+        <p class="font-body text-sm sm:text-base leading-relaxed mb-5" style="color: rgba(240,235,225,0.55); line-height: 1.9;">
+          Inspirar e sustentar um condomínio mais organizado, em que a gestão, a portaria e os moradores operam com menos atrito e mais clareza.
+        </p>
+        <div class="h-px" style="background: rgba(201,169,110,0.2);"></div>
+      </div>
     </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {skills.map((skill) => (
+    <!-- Features grid -->
+    <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      {skills.map((skill, i) => (
         <article
-          class="expertise-card group relative p-8 sm:p-10 bg-cyllor-surface border border-cyllor-border hover:border-cyllor-cyan transition-all duration-500 cursor-pointer"
+          class="group relative p-7 sm:p-9 gold-border rounded-sm flex flex-col gap-5 transition-all duration-500 hover:border-cyllor-gold"
+          style="background: var(--surface);"
+          data-reveal
+          data-delay={i * 80}
           data-cursor-hover
         >
-          <!-- Hover glow bg -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-            style="background: radial-gradient(circle at 50% 0%, rgba(0,240,255,0.06) 0%, transparent 70%)"
-          />
+          <!-- Hover glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-sm"
+            style="background: radial-gradient(circle at 50% 0%, rgba(201,169,110,0.06) 0%, transparent 65%)"></div>
 
-          <!-- Icon -->
-          <div class="mb-6 w-14 h-14 flex items-center justify-center border border-cyllor-border group-hover:border-cyllor-cyan transition-colors duration-300"
-            set:html={skill.icon}
-          />
+          <!-- Number -->
+          <span class="font-mono text-[0.58rem] tracking-[0.28em] uppercase" style="color: rgba(201,169,110,0.45);">{skill.num}</span>
 
-          <!-- Content -->
-          <h3 class="font-display font-semibold text-white text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-cyllor-cyan transition-colors duration-300">
+          <!-- Title -->
+          <h3 class="font-display font-light text-2xl sm:text-[1.7rem] leading-tight transition-colors duration-300 group-hover:text-cyllor-gold" style="color: var(--cream);">
             {skill.title}
           </h3>
-          <p class="font-body text-sm sm:text-base text-cyllor-silver leading-relaxed mb-6 sm:mb-8 opacity-90">
+
+          <!-- Description -->
+          <p class="font-body text-sm leading-relaxed flex-1" style="color: rgba(240,235,225,0.5); line-height: 1.8;">
             {skill.desc}
           </p>
 
           <!-- Tags -->
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2 pt-4 border-t" style="border-color: rgba(201,169,110,0.1);">
             {skill.tags.map((tag) => (
-              <span class="font-mono text-xs px-2.5 py-1 bg-cyllor-border text-cyllor-silver group-hover:bg-cyllor-cyan-glow transition-colors duration-300">
+              <span class="font-mono text-[0.55rem] px-2.5 py-1 tracking-widest uppercase rounded-full" style="background: rgba(201,169,110,0.07); color: rgba(201,169,110,0.55); border: 1px solid rgba(201,169,110,0.12);">
                 {tag}
               </span>
             ))}
-          </div>
-
-          <!-- Arrow indicator -->
-          <div class="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M2 8h12M10 4l4 4-4 4" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </div>
         </article>
       ))}

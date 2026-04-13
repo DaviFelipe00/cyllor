@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLeadStats, listLeads } from '../../lib/db';
+
+const token = Astro.url.searchParams.get('token') || '';
+const expectedToken = import.meta.env.ADMIN_TOKEN || process.env.ADMIN_TOKEN || '';
+const authorized = expectedToken.length > 0 && token === expectedToken;
+
+Astro.response.status = authorized ? 200 : 401;
+
+const leads = authorized ? listLeads() : [];
+const stats = authorized ? getLeadStats() : null;
+---
+<Layout
+  title="Leads — Cyllor"
+  description="Painel interno simples para acompanhar contatos recebidos pela landing page."
+>
+  <main class="px-5 sm:px-8 lg:px-16 py-20 sm:py-24 lg:py-28">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="font-display font-bold text-section text-cyllor-silver mb-6">Leads recebidos</h1>
+
+      {!authorized ? (
+        <section class="border border-red-500/30 bg-cyllor-surface p-6 sm:p-8">
+          <p class="font-display text-cyllor-silver text-2xl mb-3">Acesso negado</p>
+          <p class="text-cyllor-silver-dim leading-relaxed">
+            Defina `ADMIN_TOKEN` no ambiente e acesse esta página com `?token=SEU_TOKEN`.
+          </p>
+        </section>
+      ) : (
+        <>
+          <section class="grid md:grid-cols-2 gap-4 mb-8">
+            <article class="border border-cyllor-border bg-cyllor-surface p-6">
+              <p class="font-mono text-xs tracking-[0.3em] uppercase text-cyllor-cyan mb-3">Volume</p>
+              <p class="font-display text-4xl text-cyllor-silver">{stats.total}</p>
+              <p class="text-cyllor-silver-dim mt-2">Total de contatos registrados no SQLite.</p>
+            </article>
+            <article class="border border-cyllor-border bg-cyllor-surface p-6">
+              <p class="font-mono text-xs tracking-[0.3em] uppercase text-cyllor-cyan mb-3">Banco</p>
+              <p class="font-mono text-sm text-cyllor-silver break-all">{stats.databasePath}</p>
+              <p class="text-cyllor-silver-dim mt-2">Persistido no volume mapeado pelo container.</p>
+            </article>
+          </section>
+
+          <section class="border border-cyllor-border bg-cyllor-surface overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full min-w-[900px] border-collapse">
+                <thead>
+                  <tr class="border-b border-cyllor-border text-left">
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">Quando</th>
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">Nome</th>
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">Empresa</th>
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">E-mail</th>
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">Interesse</th>
+                    <th class="px-5 py-4 font-mono text-xs uppercase tracking-[0.25em] text-cyllor-muted">Desafio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {leads.length === 0 ? (
+                    <tr>
+                      <td colspan="6" class="px-5 py-6 text-cyllor-silver-dim">Nenhum lead registrado ainda.</td>
+                    </tr>
+                  ) : (
+                    leads.map((lead) => (
+                      <tr class="border-b border-cyllor-border/70 align-top">
+                        <td class="px-5 py-4 text-sm text-cyllor-silver-dim whitespace-nowrap">{lead.created_at}</td>
+                        <td class="px-5 py-4 text-sm text-cyllor-silver">{lead.name}</td>
+                        <td class="px-5 py-4 text-sm text-cyllor-silver">{lead.company}</td>
+                        <td class="px-5 py-4 text-sm text-cyllor-silver">
+                          <a href={`mailto:${lead.email}`} class="hover:text-cyllor-cyan transition-colors">{lead.email}</a>
+                        </td>
+                        <td class="px-5 py-4 text-sm text-cyllor-silver">{lead.interest}</td>
+                        <td class="px-5 py-4 text-sm text-cyllor-silver-dim leading-relaxed">{lead.challenge}</td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </>
+      )}
+    </div>
+  </main>
+</Layout>
