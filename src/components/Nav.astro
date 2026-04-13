@@ -39,7 +39,6 @@ const links = [
       href="#contact"
       class="btn-gold hidden md:inline-flex"
       data-cursor-hover
-      style="color: #ffffff; border-color: rgba(255,255,255,0.5);"
       id="nav-cta"
     >
       Agendar demo
@@ -110,20 +109,6 @@ const links = [
 
   toggle?.addEventListener('click', () => setOpen(!open));
   navLinks.forEach(l => l.addEventListener('click', () => setOpen(false)));
-
-  // Update CTA style on scroll
-  const siteNav = document.getElementById('site-nav');
-  window.addEventListener('scroll', () => {
-    if (navCta) {
-      if (window.scrollY > 60) {
-        navCta.style.color = '';
-        navCta.style.borderColor = '';
-      } else {
-        navCta.style.color = '#ffffff';
-        navCta.style.borderColor = 'rgba(255,255,255,0.5)';
-      }
-    }
-  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && open) setOpen(false);

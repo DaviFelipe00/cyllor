@@ -20,10 +20,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        serif:   ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Open Sans"', 'sans-serif'],
+        serif:   ['"Open Sans"', 'sans-serif'],
         mono:    ['"JetBrains Mono"', 'monospace'],
-        body:    ['"Inter"', 'sans-serif'],
+        body:    ['"Open Sans"', 'sans-serif'],
       },
       fontSize: {
         'hero': 'clamp(5rem, 16vw, 18rem)',

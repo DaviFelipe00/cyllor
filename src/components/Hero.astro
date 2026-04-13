@@ -5,7 +5,6 @@
   id="hero"
   class="relative min-h-screen flex flex-col overflow-hidden"
 >
-  <!-- Full-bleed background image -->
   <div class="absolute inset-0 z-0">
     <img
       src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=85&auto=format&fit=crop"
@@ -13,51 +12,48 @@
       class="w-full h-full object-cover object-center"
       loading="eager"
     />
-    <!-- Dark overlay gradient for readability -->
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.1) 40%, rgba(15,23,42,0.5) 75%, rgba(15,23,42,0.85) 100%);" />
-    <!-- Side vignette -->
-    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(15,23,42,0.4) 0%, transparent 40%, transparent 60%, rgba(15,23,42,0.3) 100%);" />
+    <!-- White elegant overlay gradient, reduced spread to reveal more image -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 25%, transparent 65%);" />
+    <!-- Bottom fade to solid white to blend with the next section -->
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, var(--bg) 100%);" />
   </div>
 
   <!-- Top divider line -->
-  <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);"></div>
+  <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent, rgba(37,99,235,0.15), transparent);"></div>
 
   <!-- Content layer -->
   <div class="relative z-10 flex flex-col justify-between min-h-screen px-6 sm:px-10 lg:px-14 pt-28 pb-14">
 
-    <!-- Top row: subtle tagline -->
-    <div class="flex items-start justify-end max-w-7xl mx-auto w-full">
-      <div class="max-w-xs text-right hidden lg:block" data-reveal="right" data-delay="300">
-        <p class="font-mono text-[0.6rem] tracking-[0.28em] uppercase mb-3" style="color: rgba(96,165,250,0.8);">Software para Condomínios</p>
-        <div class="h-px w-full mb-3" style="background: rgba(255,255,255,0.15);"></div>
-      </div>
-    </div>
+    <!-- Title + subtext stacked -->
+    <div class="flex flex-col justify-center max-w-[1500px] mx-auto w-full gap-4 lg:gap-8 flex-1 mt-10 sm:mt-16">
 
-    <!-- Giant title + right panel -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between max-w-7xl mx-auto w-full gap-8 lg:gap-0">
-
-      <!-- Giant CYLLOR title -->
-      <div class="flex-1">
+      <!-- CYLLOR title & Tagline -->
+      <div class="w-full">
+        <div class="flex items-center gap-4 mb-2 lg:mb-4" data-reveal>
+          <div class="w-10 h-px bg-blue-500/30"></div>
+          <p class="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.28em] uppercase text-blue-500">Software para Condomínios</p>
+        </div>
+        
         <h1
           id="hero-title"
-          class="font-display font-bold leading-[0.85] tracking-tighter select-none"
-          style="font-size: clamp(6rem, 20vw, 18rem); color: rgba(255,255,255,0.95); letter-spacing: -0.02em; text-shadow: 0 4px 30px rgba(0,0,0,0.3);"
+          class="font-display font-bold leading-[0.95] tracking-tighter select-none"
+          style="font-size: clamp(3.5rem, 12vw, 8.5rem); color: var(--text); letter-spacing: -0.02em;"
           data-reveal
         >
           CYLLOR
         </h1>
       </div>
 
-      <!-- Right: headline + description -->
-      <div class="lg:max-w-[340px] lg:pb-4 lg:pl-8" data-reveal="right" data-delay="200">
-        <h2 class="font-display font-semibold text-2xl sm:text-3xl leading-tight mb-5" style="color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+      <!-- Subtext stacked right below -->
+      <div class="max-w-[420px]" data-reveal="left" data-delay="150">
+        <h2 class="font-display font-light tracking-tighter text-3xl sm:text-4xl leading-tight mb-4" style="color: var(--text);">
           Operação inteligente<br/>
-          <span class="font-normal" style="color: #60a5fa;">em perfeita harmonia</span>
+          <span class="font-bold text-blue-600">em perfeita harmonia.</span>
         </h2>
-        <p class="font-body text-sm leading-relaxed mb-6" style="color: rgba(255,255,255,0.75); text-shadow: 0 1px 6px rgba(0,0,0,0.2);">
+        <p class="font-body text-sm leading-relaxed mb-8" style="color: var(--text-dim);">
           Centralize reservas, comunicados e controle de acesso. A Cyllor simplifica a gestão e eleva a experiência dos moradores.
         </p>
-        <a href="#contact" class="btn-gold" style="color: #ffffff; border-color: rgba(255,255,255,0.5);" data-cursor-hover>
+        <a href="#contact" class="btn-gold-fill inline-flex" data-cursor-hover>
           Agendar demonstração
         </a>
       </div>
@@ -66,8 +62,8 @@
     <!-- Bottom: scroll indicator -->
     <div id="hero-scroll-hint" class="flex items-center gap-4 max-w-7xl mx-auto w-full">
       <div class="flex flex-col items-center gap-2">
-        <span class="font-mono text-[0.55rem] tracking-[0.3em] uppercase" style="color: rgba(255,255,255,0.5);">SCROLL</span>
-        <div class="w-px h-10 animate-float" style="background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);"></div>
+        <span class="font-mono text-[0.55rem] tracking-[0.3em] uppercase text-blue-500">SCROLL</span>
+        <div class="w-px h-10 animate-float bg-blue-500/40"></div>
       </div>
     </div>
 

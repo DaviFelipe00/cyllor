@@ -1,39 +1,39 @@
 ---
-// Cases: "Resultados" — Elyse-style horizontal slider, updated to light theme
+// Cases: "Resultados" — Updated to be a clean, framed grid
 const cases = [
   {
     num: '01',
-    client: 'Comunicação Descentralizada',
-    category: 'Comunicação e reservas',
-    result: 'Centralização de avisos e reservas das áreas comuns em um fluxo mais simples para moradores, síndico e equipe administrativa.',
+    client: 'Comunicação Unificada',
+    category: 'Comunicação',
+    result: 'Centralização de avisos e reservas das áreas comuns em um fluxo mais simples.',
     metrics: [
-      { value: '72%', label: 'Menos mensagens soltas' },
-      { value: '1', label: 'Canal principal' },
-      { value: '24h', label: 'Confirmações rápidas' },
+      { value: '72%', label: 'Menos ruído' },
+      { value: '1', label: 'Canal' },
+      { value: '24h', label: 'Respostas' },
     ],
     img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop',
   },
   {
     num: '02',
-    client: 'Agenda Sobrecarregada',
-    category: 'Agenda e controle do uso',
-    result: 'Organização da agenda de salão, churrasqueira e quadra com menos conflitos e mais previsibilidade para moradores.',
+    client: 'Uso Inteligente de Espaços',
+    category: 'Reservas',
+    result: 'Organização da agenda de salão, churrasqueira e quadra com menos conflitos.',
     metrics: [
-      { value: '60%', label: 'Menos conflitos' },
-      { value: '3×', label: 'Mais adesão' },
-      { value: '0', label: 'Planilhas paralelas' },
+      { value: '60%', label: 'Conflitos' },
+      { value: '3×', label: 'Adesão' },
+      { value: '0', label: 'Planilhas' },
     ],
     img: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80&auto=format&fit=crop',
   },
   {
     num: '03',
-    client: 'Portaria com Alto Volume',
-    category: 'Acesso e visitantes',
-    result: 'Fluxo de autorização mais claro para moradores, recepção mais rápida na entrada e melhor rastreabilidade.',
+    client: 'Controle de Acesso Ágil',
+    category: 'Acesso',
+    result: 'Fluxo de autorização mais claro para moradores, recepção ágil na entrada.',
     metrics: [
-      { value: '45%', label: 'Menos espera' },
-      { value: '100%', label: 'Histórico centralizado' },
-      { value: '1', label: 'Fluxo de entrada' },
+      { value: '45%', label: 'Espera' },
+      { value: '100%', label: 'Controle' },
+      { value: '1', label: 'Fluxo' },
     ],
     img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80&auto=format&fit=crop',
   },
@@ -43,69 +43,63 @@ const cases = [
 
   <div class="section-divider"></div>
 
-  <div class="px-6 sm:px-10 lg:px-14 mb-12 sm:mb-16 max-w-7xl mx-auto">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+  <!-- Perfectly framed container -->
+  <div class="px-6 sm:px-10 lg:px-14 max-w-7xl mx-auto">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
       <div data-reveal>
-        <span class="section-label mb-5 block">(Resultados)</span>
-        <h2 class="font-display font-semibold leading-tight" style="font-size: clamp(2.5rem, 5.5vw, 5rem); color: var(--text);">
+        <div class="flex items-center gap-4 mb-4 lg:mb-6">
+          <div class="w-8 h-px bg-blue-500/30"></div>
+          <p class="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.28em] uppercase text-blue-500">Resultados</p>
+        </div>
+        <h2 class="font-display font-light leading-tight tracking-tighter" style="font-size: clamp(2.2rem, 5vw, 4.5rem); color: var(--text);">
           Cenários reais,<br/>
-          <span class="font-normal" style="color: var(--blue);">ganhos concretos</span>
+          <span class="font-bold" style="color: var(--blue);">ganhos concretos.</span>
         </h2>
       </div>
-      <!-- Navigation dots -->
-      <div class="flex gap-3 items-center" id="cases-nav">
-        {cases.map((_, i) => (
-          <button
-            class="cases-dot w-8 h-px transition-all duration-300"
-            style={`background: ${i === 0 ? 'var(--blue)' : 'rgba(37,99,235,0.25)'};`}
-            data-index={i}
-            aria-label={`Ir para caso ${i+1}`}
-          ></button>
-        ))}
-      </div>
     </div>
-  </div>
 
-  <!-- Horizontal scroll container -->
-  <div class="relative">
-    <div
-      id="cases-track"
-      class="flex gap-5 sm:gap-6 pl-6 sm:pl-10 lg:pl-14 pr-6 sm:pr-10 overflow-x-auto"
-      style="scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none;"
-    >
+    <!-- 3-Column Standard Grid Layout to ensure perfect framing -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {cases.map((c, i) => (
         <article
-          class="flex-none w-[calc(100vw-3rem)] sm:w-[calc(100vw-5rem)] lg:w-[calc(50vw-4rem)] xl:w-[calc(40vw-3rem)] max-w-2xl gold-border rounded-lg overflow-hidden group shadow-sm bg-white"
-          style="scroll-snap-align: start;"
+          class="flex flex-col border rounded-lg overflow-hidden group shadow-sm hover:shadow-lg transition-all duration-300 bg-white"
+          style="border-color: rgba(15,23,42,0.06);"
+          data-reveal
+          data-delay={i * 100}
           data-cursor-hover
         >
-          <!-- Photo -->
-          <div class="img-zoom aspect-[16/9] sm:aspect-[16/10] relative">
+          <!-- Photo Container -->
+          <div class="aspect-[16/10] relative overflow-hidden">
             <img
               src={c.img}
               alt={c.client}
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <!-- Dark gradient over photo for white text readability -->
             <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.2) 60%, transparent 100%);"></div>
-            <!-- Title over image -->
-            <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-              <p class="font-mono text-[0.55rem] tracking-[0.28em] uppercase mb-2" style="color: #60a5fa;">{c.category}</p>
-              <h3 class="font-display font-semibold text-3xl sm:text-4xl leading-tight" style="color: #ffffff;">{c.client}</h3>
+            
+            <!-- Floating Category Tag & Title -->
+            <div class="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
+              <span class="inline-block font-mono text-[0.55rem] tracking-[0.2em] uppercase px-2.5 py-1 rounded-full mb-3 shadow-sm bg-white" style="color: var(--blue);">
+                {c.category}
+              </span>
+              <h3 class="font-display font-semibold text-2xl" style="color: #ffffff; line-height: 1.1;">{c.client}</h3>
             </div>
           </div>
 
-          <!-- Content -->
-          <div class="p-6 sm:p-8">
-            <p class="font-body text-sm leading-relaxed mb-8" style="color: var(--text-dim); line-height: 1.8;">
+          <!-- Bottom Text & Metrics Container -->
+          <div class="p-5 lg:p-6 flex flex-col flex-1">
+            <p class="font-body text-sm leading-relaxed mb-6 flex-1" style="color: var(--text-dim); line-height: 1.7;">
               {c.result}
             </p>
 
             <!-- Metrics -->
-            <div class="grid grid-cols-3 gap-4 pt-6 border-t" style="border-color: rgba(15,23,42,0.06);">
+            <div class="grid grid-cols-3 gap-3 pt-5 border-t" style="border-color: rgba(15,23,42,0.06);">
               {c.metrics.map((m) => (
                 <div>
-                  <p class="font-display font-semibold text-3xl sm:text-4xl mb-1 text-blue-600">{m.value}</p>
-                  <p class="font-mono text-[0.52rem] tracking-widest uppercase leading-tight" style="color: var(--text-muted);">{m.label}</p>
+                  <p class="font-display font-semibold text-2xl mb-1 text-blue-600 tracking-tight">{m.value}</p>
+                  <p class="font-mono text-[0.5rem] tracking-widest uppercase leading-tight" style="color: var(--text-muted);">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -115,28 +109,3 @@ const cases = [
     </div>
   </div>
 </section>
-
-<style>
-  #cases-track::-webkit-scrollbar { display: none; }
-</style>
-
-<script>
-  const track = document.getElementById('cases-track');
-  const dots  = document.querySelectorAll('.cases-dot');
-  if (track) {
-    track.addEventListener('scroll', () => {
-      const index = Math.round(track.scrollLeft / track.offsetWidth);
-      dots.forEach((dot, i) => {
-        (dot as HTMLElement).style.background = i === index
-          ? 'var(--blue)'
-          : 'rgba(37,99,235,0.25)';
-      });
-    });
-    dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const idx = parseInt((dot as HTMLElement).dataset.index || '0');
-        track.scrollTo({ left: idx * track.offsetWidth * 0.95, behavior: 'smooth' });
-      });
-    });
-  }
-</script>

@@ -20,7 +20,7 @@ const {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
 
@@ -183,20 +183,16 @@ const {
     }
 
     /* ── Nav ───────────────────────────────── */
-    #site-nav .nav-logo { color: #ffffff; }
-    #site-nav .nav-link { color: rgba(255,255,255,0.7); }
-    #site-nav .nav-link:hover { color: #ffffff; }
-    #site-nav .nav-hamburger { color: #ffffff; }
+    #site-nav .nav-logo { color: var(--text); }
+    #site-nav .nav-link { color: var(--text-dim); }
+    #site-nav .nav-link:hover { color: var(--text); }
+    #site-nav .nav-hamburger { color: var(--text); }
 
     #site-nav.scrolled {
       background: rgba(255,255,255,0.95) !important;
       backdrop-filter: blur(20px);
       box-shadow: 0 1px 12px rgba(15,23,42,0.06);
     }
-    #site-nav.scrolled .nav-logo { color: var(--text); }
-    #site-nav.scrolled .nav-link { color: var(--text-dim); }
-    #site-nav.scrolled .nav-link:hover { color: var(--text); }
-    #site-nav.scrolled .nav-hamburger { color: var(--text); }
 
     /* ── Button styles ─────────────────────── */
     .btn-gold {
