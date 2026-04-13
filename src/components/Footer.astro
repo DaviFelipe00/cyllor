@@ -11,10 +11,10 @@
 
       <!-- Brand -->
       <div class="sm:col-span-2 lg:col-span-1">
-        <span class="font-display font-semibold text-2xl tracking-[0.2em] mb-5 block" style="color: #ffffff;">
+        <span class="font-display font-semibold text-2xl tracking-[0.15em] mb-5 block" style="color: #ffffff;">
           CYLLOR
         </span>
-        <p class="font-mono text-[0.58rem] tracking-[0.15em] leading-relaxed uppercase" style="color: rgba(255,255,255,0.5);">
+        <p class="font-sans font-semibold text-[0.6rem] tracking-[0.1em] leading-relaxed uppercase" style="color: rgba(255,255,255,0.5);">
           Software para condomínios<br/>
           com foco em rotina e facilidade.<br/>
           Atendimento para síndicos,<br/>
@@ -24,13 +24,12 @@
 
       <!-- Produto -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Produto</p>
+        <p class="font-sans font-semibold text-[0.65rem] tracking-[0.15em] uppercase mb-5" style="color: #60a5fa;">Produto</p>
         <nav class="flex flex-col gap-3">
           {[
             { label: 'Como funciona', href: '#lifestyle' },
             { label: 'Facilidades',   href: '#expertise' },
             { label: 'Resultados',    href: '#cases' },
-            { label: 'Agendar demo',  href: '#contact' },
           ].map(link => (
             <a href={link.href} class="font-body text-sm transition-colors duration-300 hover:text-blue-400" style="color: rgba(255,255,255,0.7);">
               {link.label}
@@ -41,7 +40,7 @@
 
       <!-- Legal -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Legal</p>
+        <p class="font-sans font-semibold text-[0.65rem] tracking-[0.15em] uppercase mb-5" style="color: #60a5fa;">Legal</p>
         <nav class="flex flex-col gap-3">
           {[
             { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
@@ -57,13 +56,10 @@
 
       <!-- Contact -->
       <div>
-        <p class="font-mono text-[0.58rem] tracking-[0.28em] uppercase mb-5" style="color: #60a5fa;">Contato</p>
+        <p class="font-sans font-semibold text-[0.65rem] tracking-[0.15em] uppercase mb-5" style="color: #60a5fa;">Contato</p>
         <div class="flex flex-col gap-3">
           <a href="mailto:contato@cyllor.com" class="font-body text-sm transition-colors duration-300 hover:text-blue-400" style="color: rgba(255,255,255,0.7);">
             contato@cyllor.com
-          </a>
-          <a href="#contact" class="btn-gold text-center mt-2" style="color: #ffffff; border-color: rgba(255,255,255,0.5);">
-            Agendar demo
           </a>
         </div>
       </div>
@@ -71,7 +67,7 @@
 
     <!-- Bottom bar -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <p class="font-mono text-[0.55rem] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">
+      <p class="font-sans font-semibold text-[0.6rem] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">
         © {new Date().getFullYear()} Cyllor. Software para condomínios.
       </p>
       <!-- Blue line -->

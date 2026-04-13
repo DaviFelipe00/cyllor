@@ -25,37 +25,24 @@
   <div class="relative z-10 flex flex-col justify-between min-h-screen px-6 sm:px-10 lg:px-14 pt-28 pb-14">
 
     <!-- Title + subtext stacked -->
-    <div class="flex flex-col justify-center max-w-[1500px] mx-auto w-full gap-4 lg:gap-8 flex-1 mt-10 sm:mt-16">
+    <div class="flex flex-col justify-center items-center sm:items-start max-w-[1500px] w-full flex-1 mt-0 sm:mt-16 lg:ml-0 lg:mr-auto">
 
-      <!-- CYLLOR title & Tagline -->
-      <div class="w-full">
-        <div class="flex items-center gap-4 mb-2 lg:mb-4" data-reveal>
-          <div class="w-10 h-px bg-blue-500/30"></div>
-          <p class="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.28em] uppercase text-blue-500">Software para Condomínios</p>
-        </div>
+      <!-- Main Headline Block -->
+      <div class="max-w-[650px] xl:max-w-[800px] w-full flex flex-col items-center sm:items-start" data-reveal="left" data-delay="100">
         
-        <h1
-          id="hero-title"
-          class="font-display font-bold leading-[0.95] tracking-tighter select-none"
-          style="font-size: clamp(3.5rem, 12vw, 8.5rem); color: var(--text); letter-spacing: -0.02em;"
-          data-reveal
-        >
-          CYLLOR
+        <h1 class="hidden sm:block font-sans text-lg sm:text-2xl lg:text-[2.2rem] leading-tight font-bold tracking-[0.1em] uppercase text-blue-600 mb-10 mt-12">
+          O Novo Padrão em Software para Condomínios.
         </h1>
-      </div>
-
-      <!-- Subtext stacked right below -->
-      <div class="max-w-[420px]" data-reveal="left" data-delay="150">
-        <h2 class="font-display font-light tracking-tighter text-3xl sm:text-4xl leading-tight mb-4" style="color: var(--text);">
-          Operação inteligente<br/>
-          <span class="font-bold text-blue-600">em perfeita harmonia.</span>
-        </h2>
-        <p class="font-body text-sm leading-relaxed mb-8" style="color: var(--text-dim);">
-          Centralize reservas, comunicados e controle de acesso. A Cyllor simplifica a gestão e eleva a experiência dos moradores.
-        </p>
-        <a href="#contact" class="btn-gold-fill inline-flex" data-cursor-hover>
-          Agendar demonstração
-        </a>
+        
+        <!-- Button Group -->
+        <div class="flex items-center flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
+          <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 text-white font-sans text-sm sm:text-base tracking-wide uppercase px-10 py-4 sm:py-5 rounded-full hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-lg shadow-blue-500/20" data-cursor-hover>
+            Agendar demonstração
+          </a>
+          <a href="#lifestyle" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-100 text-blue-700 font-sans text-sm sm:text-base tracking-wide uppercase px-10 py-4 sm:py-5 rounded-full hover:bg-blue-200 hover:-translate-y-0.5 border border-blue-200/50 transition-all duration-300 font-bold" data-cursor-hover>
+            Como funciona
+          </a>
+        </div>
       </div>
     </div>
 

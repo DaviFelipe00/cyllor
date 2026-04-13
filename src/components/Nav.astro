@@ -7,7 +7,7 @@ const links = [
 ---
 <nav
   id="site-nav"
-  class="fixed top-0 left-0 right-0 z-50 px-6 sm:px-8 lg:px-14 py-5 transition-all duration-500"
+  class="fixed top-0 left-0 right-0 z-50 px-6 sm:px-8 lg:px-14 py-6 transition-all duration-500"
   style="background: transparent;"
 >
   <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -26,7 +26,7 @@ const links = [
           <a
             href={link.href}
             data-cursor-hover
-            class="nav-link relative font-mono text-[0.6rem] tracking-[0.22em] uppercase transition-colors duration-300 group"
+            class="nav-link relative font-sans text-xs lg:text-sm font-semibold tracking-[0.1em] uppercase transition-colors duration-300 group"
           >
             {link.label}
             <span class="absolute -bottom-1 left-0 h-px w-0 bg-blue-500 transition-all duration-400 group-hover:w-full" />
@@ -37,7 +37,7 @@ const links = [
 
     <a
       href="#contact"
-      class="btn-gold hidden md:inline-flex"
+      class="hidden md:inline-flex items-center justify-center bg-blue-600 text-white font-sans text-xs lg:text-sm tracking-[0.1em] uppercase px-8 py-3.5 rounded-full hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 font-bold"
       data-cursor-hover
       id="nav-cta"
     >
@@ -79,7 +79,7 @@ const links = [
   <a
     href="#contact"
     data-nav-link
-    class="btn-gold mt-4"
+    class="inline-flex items-center justify-center bg-blue-600 text-white font-sans text-sm tracking-[0.1em] uppercase px-12 py-4 rounded-full mt-8 font-bold shadow-lg shadow-blue-500/20 active:scale-95 transition-all w-full max-w-[280px]"
   >
     Agendar demo
   </a>

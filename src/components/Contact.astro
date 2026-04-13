@@ -2,7 +2,7 @@
 // Contact: split layout — light theme
 const contactState = Astro.url.searchParams.get('contact');
 ---
-<section id="contact" class="relative overflow-hidden" style="background: var(--bg);">
+<section id="contact" class="relative py-16 lg:py-24 overflow-hidden" style="background: var(--bg-alt);">
 
   <div class="section-divider"></div>
 
@@ -38,7 +38,7 @@ const contactState = Astro.url.searchParams.get('contact');
       </div>
 
       <!-- Right: Form Panel -->
-      <div class="lg:w-[55%] flex flex-col justify-center p-8 sm:p-12 lg:p-16 relative z-10 bg-white">
+      <div class="lg:w-[55%] flex flex-col justify-center px-8 sm:px-12 lg:px-16 py-14 sm:py-20 lg:py-24 relative z-10 bg-white">
         
         <div class="mb-8 relative z-10">
           <h2 class="font-display font-semibold text-3xl mb-3" style="color: var(--text);">
